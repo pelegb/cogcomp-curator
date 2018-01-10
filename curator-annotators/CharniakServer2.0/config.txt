@@ -1,0 +1,3 @@
+parser05May26fixed/DATA/EN/ -l400 -K chkTest.txt 
+SENTENCE_VIEW sentences
+TOK_VIEW tokens

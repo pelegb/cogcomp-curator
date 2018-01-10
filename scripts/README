@@ -1,0 +1,8 @@
+These scripts have been set up to simplify moving/creating Curator instances.
+They all assume that they are run from a directory containing the file
+"curatorVars.sh", which specifies required variables. 
+
+Many of them use the script 'runIt.pl', which renames the process identifier
+in a way that makes searching for it easier; this enables the Server Monitor
+to more reliably find and kill only the relevant processes for Curator
+components. 

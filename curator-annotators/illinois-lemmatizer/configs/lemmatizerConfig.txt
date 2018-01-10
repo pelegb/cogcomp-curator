@@ -1,0 +1,5 @@
+jwnlConfigFile	configs/jwnl_properties.xml
+lemmaCacheFile  data/lemmaCache.txt
+updateLemmaCacheFile    true
+maxLemmaCacheEntries    100000
+wordnetPath data/WordNet

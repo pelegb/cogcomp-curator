@@ -1,0 +1,152 @@
+<project name="curator-server" default="compile" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+	<property name="src" location="src" />
+	<property name="build" location="bin" />
+	<property name="dist" location="dist" />
+	<property name="curator.dir" location=".." />
+	<property name="curator.lib" location="${curator.dir}/lib" />
+	<property name="class.main" value="edu.illinois.cs.cogcomp.curator.CuratorServer" />
+	<property name="memory" value="1000m" />
+	<property name="src.test" location="test" />
+	<property name="build.test" location="${build}/test" />
+	<property name="build.instrument" location="${build}/instrumented"/>
+	<property name="class.test" value="edu.illinois.cs.cogcomp.curator.CuratorHandlerTest" />
+    <property name="cobertura.dir" location="cobertura"/>
+	
+	<target name="resolve" description="retrieve dependencies with ivy" depends="init-ivy">
+		<ivy:retrieve pattern="../lib/[artifact]-[revision].[ext]" />
+		<ivy:cachepath pathid="dependencies.classpath" />
+	</target>
+
+	<path id="project.classpath">
+		<pathelement path="${build}" />
+		<pathelement path="configs" />
+		<pathelement path="${curator.dir}/curator-interfaces/dist/curator-interfaces.jar" />
+		<pathelement path="${curator.lib}/libthrift.jar" />
+                <pathelement path="${curator.dir}/curator-annotators/illinois-tokenizer/dist/illinois-tokenizer-server.jar" />
+		<pathelement location="${curator.dir}/curator-annotators/illinois-abstract/dist/illinois-abstract-server.jar" />
+		<pathelement path="${curator.lib}/mongo-2.7.3.jar" />
+		<path refid="dependencies.classpath" />
+	</path>
+
+	<path id="test.classpath">
+		<path refid="project.classpath" />
+		<pathelement path="${build.test}" />
+		<fileset dir="${curator.dir}/curator-annotators">
+			<include name="**/dist/*.jar" />
+		</fileset>
+		<fileset dir="${curator.lib}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="cobertura.classpath">
+	    <fileset dir="${curator.lib}">
+	    	<include name="**/*.jar"/>
+	    </fileset>
+	</path>
+	
+	<taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+  
+	<property name="argument" value="" />
+
+	<target name="compile" description="compile the curator java files" depends="resolve">
+		<mkdir dir="${build}" />
+		<javac srcdir="${src}" destdir="${build}" debug="true" classpathref="project.classpath">
+			<!--compilerarg value="-Xlint:unchecked" /-->
+		</javac>
+	</target>
+
+	<target name="clean" description="removes all java compiled files">
+		<delete dir="${build}" />
+		<delete dir="${cobertura.dir}"/>
+	</target>
+
+	<target name="build" depends="compile" description="alias for compile" />
+
+	<target name="rebuild" depends="clean,compile" description="clean everything and recompile" />
+
+	<target name="print" description="print command line to run  the server" depends="compile">
+		<property name="thecp" refid="project.classpath" />
+		<echo>java -Xmx${memory} -classpath ${thecp} ${class.main}</echo>
+	</target>
+
+	<target name="dist" description="creates a jar of the project in dist/" depends="compile">
+		<mkdir dir="${dist}" />
+		<jar destfile="${dist}/curator-server.jar">
+			<fileset dir="${build}" />
+		</jar>
+	</target>
+
+	<property name="ivy.install.version" value="2.1.0" />
+	<condition property="ivy.home" value="${env.IVY_HOME}">
+		<isset property="env.IVY_HOME" />
+	</condition>
+
+	<property name="ivy.home" value="${user.home}/.ant" />
+	<property name="ivy.jar.dir" value="${ivy.home}/lib" />
+	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
+
+	<target name="download-ivy" unless="offline">
+		<mkdir dir="${ivy.jar.dir}" />
+		<!-- download Ivy from web site so that it can be used even without any special installation -->
+		<get src="http://repo2.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true" />
+	</target>
+
+	<target name="init-ivy" depends="download-ivy">
+		<!-- try to load ivy here from ivy home, in case the user has not already dropped
+         it into ant's lib dir (note that the latter copy will always take precedence).
+         We will not fail as long as local lib dir exists (it may be empty) and
+         ivy is in at least one of ant's lib dir or the local lib dir. -->
+		<path id="ivy.lib.path">
+			<fileset dir="${ivy.jar.dir}" includes="*.jar" />
+		</path>
+		<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+	</target>
+
+	<target name="compile-test" description="compile test cases" depends="compile">
+		<mkdir dir="${build.test}" />
+		<javac srcdir="${src.test}" destdir="${build.test}" debug="true" classpathref="test.classpath" />
+	</target>
+
+	<target name="test" description="run the unit tests" depends="compile-test">
+	    <!--
+		<property name="myclasspath" refid="test.classpath" />
+		<echo message="test classpath=${myclasspath}" />
+        -->
+		<junit fork="true" dir="${basedir}" printsummary="yes" maxmemory="${memory}" failureproperty="tests.failed">
+			<test name="${class.test}" />
+			<formatter type="plain" usefile="true" />
+			<classpath refid="test.classpath" />
+		</junit>
+		<fail if="tests.failed">Tests failed! Check output!</fail>
+	</target>
+
+	<target name="instrument" depends="compile-test">
+		<mkdir dir="${cobertura.dir}"/>
+		<delete file="${cobertura.dir}/cobertura.ser"/>
+	    <cobertura-instrument todir="${build.instrument}" datafile="${cobertura.dir}/cobertura.ser">
+		    <fileset dir="${build}">
+	    	    <include name="**/*.class"/>
+		    </fileset>
+	    </cobertura-instrument>
+	</target>
+	
+	<target name="coverage-test" depends="instrument">
+        <junit fork="true" dir="${basedir}" printsummary="yes" maxmemory="${memory}" failureproperty="tests.failed">
+        	<sysproperty key="net.sourceforge.cobertura.datafile" file="${cobertura.dir}/cobertura.ser"/>
+            <test name="${class.test}" />
+            <formatter type="plain" usefile="true" />
+        	<classpath refid="cobertura.classpath"/>
+        	<classpath location="${build.instrument}"/>
+            <classpath refid="test.classpath" />
+        </junit>
+        <fail if="tests.failed">Coverage tests failed! Check output!</fail>
+	</target>
+	
+	<target name="coverage-report" description="run test coverage reports" depends="coverage-test">
+	    <cobertura-report srcdir="${src}" destdir="${cobertura.dir}" datafile="${cobertura.dir}/cobertura.ser"/>
+		<echo message="Test coverage report written to ${cobertura.dir}/index.html"/>
+	</target>
+	
+</project>
+

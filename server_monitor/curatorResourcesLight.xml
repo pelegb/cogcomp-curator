@@ -1,0 +1,115 @@
+<demos demo_script_home="/shared/trollope/curator/scripts/" sm_port="6001">
+  <demo host="treebeard.cs.illinois.edu" name="charniak">
+    <components>
+      <component name="charniak">
+        <kill_cmd>AUTO</kill_cmd> 
+        <port>9987</port>
+        <start_script>start_charniak.sh</start_script>
+        <process_identifier>charniak_treebeard.cs.illinois.edu_9987</process_identifier>
+        <args>charniak</args>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="charniak_reranking">
+    <components>
+      <component name="charniak_reranking">
+        <kill_cmd>AUTO</kill_cmd> 
+        <port>9988</port>
+        <start_script>start_charniak_reranking.sh</start_script>
+        <process_identifier>charniak_reranking_treebeard.cs.illinois.edu_9988</process_identifier>
+        <args>charniak_reranking</args>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="curator_main">
+    <components>
+       <component name="curator">
+        <port>9010</port>
+        <start_script>startCurator.sh</start_script>
+        <process_identifier>CuratorServer</process_identifier>
+        <kill_cmd>AUTO</kill_cmd>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="Illinois Extended NER (finer NE types):">
+    <components>
+       <component name="Main">
+        <port>9097</port>
+<!--        <args>configs/ner.ontonotes.config</args> -->
+        <start_script>start_ner_ext.sh</start_script>
+        <process_identifier>illinois-ner-ext.treebeard.cs.illinois.edu.9097</process_identifier>
+        <kill_cmd>AUTO</kill_cmd>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="Illinois POS">
+    <components>
+       <component name="POS">
+        <port>9091</port>
+        <start_script>start_pos.sh</start_script>
+        <process_identifier>annotation.server.IllinoisPOSServer</process_identifier>
+        <kill_cmd>AUTO</kill_cmd>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="Illinois Lemmatizer">
+    <components>
+       <component name="Lemmatizer">
+        <port>12345</port>
+        <start_script>start_lemmatizer.sh</start_script>
+        <process_identifier>annotation.server.IllinoisLemmatizerServer</process_identifier>
+        <kill_cmd>AUTO</kill_cmd>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="Illinois Chunk">
+    <components>
+       <component name="Chunk">
+        <port>9092</port>
+        <start_script>start_chunker.sh</start_script>
+        <process_identifier>annotation.server.IllinoisChunkerServer</process_identifier>
+        <kill_cmd>AUTO</kill_cmd>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="Stanford Parser">
+    <components>
+       <component name="Stanford Parser">
+        <port>9095</port>
+        <start_script>start_stanford.sh</start_script>
+        <process_identifier>annotation.server.StanfordParserServer -p 9095</process_identifier>
+        <kill_cmd>AUTO</kill_cmd>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="Stanford K-Best Parser">
+    <components>
+       <component name="Stanford K-Best Parser">
+        <port>9151</port>
+        <start_script>start_kbeststanford.sh</start_script>
+        <process_identifier>annotation.server.StanfordParserServer -p 9151</process_identifier>
+        <kill_cmd>AUTO</kill_cmd>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="Easy First Parser">
+    <components>
+       <component name="Easy First Parser">
+        <port>9057</port>
+        <start_script>start_easyfirst.sh</start_script>
+        <process_identifier>easyfirst_server.py</process_identifier>
+        <kill_cmd>AUTO</kill_cmd>
+      </component>
+    </components>
+  </demo>
+  <demo host="treebeard.cs.illinois.edu" name="Berkeley Parser">
+    <components>
+       <component name="berkeley-parser">
+        <port>16000</port>
+        <start_script>start_berkeley.sh</start_script>
+        <process_identifier>BerkeleyParserServer</process_identifier>
+        <kill_cmd>AUTO</kill_cmd>
+      </component>
+    </components>
+  </demo>
+</demos>

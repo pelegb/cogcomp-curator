@@ -1,0 +1,62 @@
+Illinois Mention Detection Server
+====================================
+
+Description
+-----------
+
+This package wraps the new Illinois Coreference Mention Detector as a
+Thrift server using the Curator's Labeler interface. It is designed to
+be integrated into the Curator system.
+
+Usage
+-----
+
+>     $ bin/illinois-mention-server.sh --help
+>     usage: java edu.illinois.cs.cogcomp.annotation.server.IllinoisMentionDetectorServer
+>            [-c <CONFIG>] [-h] [-p <PORT>] [-t <THREADS>]
+>      -c,--config <CONFIG>     configuration file
+>      -h,--help                print this message
+>      -p,--port <PORT>         port to open server on
+>      -t,--threads <THREADS>   number of threads to run
+
+
+Installation
+------------
+
+The Illinois Coreference Mention Detector server depends on:
+
+* Java >= 1.5
+* Illinois Learning Based Java Library (`LBJ2Library.jar`)
+* Illinois Edison library (`Edison.jar`) 
+* Illinois Mention Detector (`IllinoisCoreferenceMentionDetector.jar`)
+* Curator interfaces (`curator-interfaces.jar`)
+* a Curator instance with Part-of-Speech, Chunker, NER,
+  and Stanford Syntactic Parser, together with a Coreference-compatible
+  Mention Detector.
+
+
+In order to run the server you must install the dependencies.
+
+Download the dependencies and move them to the curator lib directory:
+
+>     $ pwd
+>     /home/james/curator 
+>     $ curl -O http://cogcomp.cs.illinois.edu/software/LBJ2Library.jar
+>     $ mv LBJ2Library.jar lib
+>     $ curl -O http://cogcomp.cs.illinois.edu/software/LBJPOS.jar
+>     $ mv LBJPOS.jar lib
+>     $ curl -O http://cogcomp.cs.illinois.edu/software/LBJCoref.jar
+>     $ mv LBJCoref.jar lib
+
+
+Configuration
+-------------
+
+The Illinois Coreference Server expects the Record object to contain an
+annotation representing the sentence split, tokenization, POS tags, shallow
+parse chunks, Named Entities, and Stanford syntactic parse trees.  
+
+The file configuration file `configs/coref.properties` specifies which
+fields in the Record.labelViews contain this information (defaults to
+`sentences`, `tokens` and `pos` respectively). Optionally it can point
+to the named entity field (which it will use as mentions).

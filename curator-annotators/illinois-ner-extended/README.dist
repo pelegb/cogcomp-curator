@@ -1,0 +1,16 @@
+The Illinois Extended Named Entity Recognizer component requires that
+the Extended NER be downloaded, the
+dist/IllinoisNerTagger-<version>.jar be copied to curator/lib/, and
+the Data/* and Models/* copied to
+curator-annotators/illinois-ner-extended/data/ner-ext/.  The two
+configuration files DemoConfig/ner.*.config should be copied to 
+curator-annotators/illinois-ner-extended/configs.
+
+Check that the jar version agrees with build.xml and the
+illinois-ner-extended-server.pl -- change the latter if needed.
+
+You can now run "ant dist" in the illinois-ner-extended/ directory
+to build the curator server wrapper for the extended NER. The main
+curator build script will copy these resources to the appropriate 
+locations to be run with the Curator. 
+

@@ -1,0 +1,1883 @@
+{
+  "@class" : "com.sri.faust.model.DocAnnotations",
+  "version" : "2.2.0",
+  "runId" : 0,
+  "task" : null,
+  "docId" : "AFP_ENG_20030306.0751",
+  "creationDate" : "2012-01-05T16:21:59.188-0600",
+  "processor" : null,
+  "text" : "<DOC id=\"AFP_ENG_20030306.0751\" type=\"story\" >\n<HEADLINE>\nPalestinian gunman shot dead outside West Bank settlement\n(ADDS weapons found by the body, FIXES toll)\n</HEADLINE>\n<DATELINE>\nJERUSALEM, March 6 (AFP)\n</DATELINE>\n<TEXT>\n<P>\nIsraeli troops shot dead a Palestinian gunman who opened fire on them\noutside a Jewish settlement in the northern West Bank, an army\nspokeswoman said late Thursday.\n</P>\n<P>\n\"IDF forces spotted a suspicious figure who opened fire towards them\nby the fence surrounding Hamra (settlement), so they returned fire\nand killed him,\" she said.\n</P>\n<P>\nPublic radio said troops found a Kalashnikov next to his body and\nseveral other weapons.\n</P>\n<P>\nSettler sources said troops were searching for a possible second\nattacker who may have fled the scene, but the army would not confirm\nthe information.\n</P>\n<P>\nThe latest incident raises the toll for the 29-month-old intifada, or\nPalestinian uprising, to 3,048 people killed, including 2,282\nPalestinians and 705 Israelis.\n</P>\n<P>\nHamra is a small Jewish settlement situated in the northern Jordan\nValley.\n</P>\n</TEXT>\n</DOC>",
+  "entityMentions" : [ "java.util.ArrayList", [ {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "0",
+    "provenance" : {
+      "excerptString" : "killed",
+      "beginningOffset" : 943,
+      "endingOffset" : 949,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "1",
+    "provenance" : {
+      "excerptString" : "intifada",
+      "beginningOffset" : 892,
+      "endingOffset" : 900,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Shooting" ] ],
+    "referenceId" : "2",
+    "provenance" : {
+      "excerptString" : "shot",
+      "beginningOffset" : 246,
+      "endingOffset" : 250,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "3",
+    "provenance" : {
+      "excerptString" : "29-month",
+      "beginningOffset" : 879,
+      "endingOffset" : 887,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "4",
+    "provenance" : {
+      "excerptString" : "shot",
+      "beginningOffset" : 76,
+      "endingOffset" : 80,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "4",
+    "provenance" : {
+      "excerptString" : "shot",
+      "beginningOffset" : 246,
+      "endingOffset" : 250,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "5",
+    "provenance" : {
+      "excerptString" : "Settler",
+      "beginningOffset" : 675,
+      "endingOffset" : 682,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "5",
+    "provenance" : {
+      "excerptString" : "Settler sources",
+      "beginningOffset" : 675,
+      "endingOffset" : 690,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "6",
+    "provenance" : {
+      "excerptString" : "several other weapons",
+      "beginningOffset" : 643,
+      "endingOffset" : 664,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "7",
+    "provenance" : {
+      "excerptString" : "a possible second attacker",
+      "beginningOffset" : 722,
+      "endingOffset" : 748,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "7",
+    "provenance" : {
+      "excerptString" : "who",
+      "beginningOffset" : 749,
+      "endingOffset" : 752,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "8",
+    "provenance" : {
+      "excerptString" : "a Jewish settlement in the northern West Bank",
+      "beginningOffset" : 309,
+      "endingOffset" : 354,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "9",
+    "provenance" : {
+      "excerptString" : "IDF forces",
+      "beginningOffset" : 406,
+      "endingOffset" : 416,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "10",
+    "provenance" : {
+      "excerptString" : "they",
+      "beginningOffset" : 522,
+      "endingOffset" : 526,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "10",
+    "provenance" : {
+      "excerptString" : "them",
+      "beginningOffset" : 469,
+      "endingOffset" : 473,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "11",
+    "provenance" : {
+      "excerptString" : "a suspicious figure",
+      "beginningOffset" : 425,
+      "endingOffset" : 444,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "11",
+    "provenance" : {
+      "excerptString" : "who",
+      "beginningOffset" : 445,
+      "endingOffset" : 448,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "12",
+    "provenance" : {
+      "excerptString" : "him",
+      "beginningOffset" : 552,
+      "endingOffset" : 555,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "13",
+    "provenance" : {
+      "excerptString" : "the scene",
+      "beginningOffset" : 767,
+      "endingOffset" : 776,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "NULL" ] ],
+    "referenceId" : "14",
+    "provenance" : {
+      "excerptString" : "the fence",
+      "beginningOffset" : 477,
+      "endingOffset" : 486,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "15",
+    "provenance" : {
+      "excerptString" : "his body",
+      "beginningOffset" : 630,
+      "endingOffset" : 638,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "16",
+    "provenance" : {
+      "excerptString" : "3,048 people killed",
+      "beginningOffset" : 930,
+      "endingOffset" : 949,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "NULL" ] ],
+    "referenceId" : "17",
+    "provenance" : {
+      "excerptString" : "Kalashnikov",
+      "beginningOffset" : 610,
+      "endingOffset" : 621,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "NULL" ] ],
+    "referenceId" : "17",
+    "provenance" : {
+      "excerptString" : "a Kalashnikov",
+      "beginningOffset" : 608,
+      "endingOffset" : 621,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Killing" ] ],
+    "referenceId" : "18",
+    "provenance" : {
+      "excerptString" : "killed",
+      "beginningOffset" : 545,
+      "endingOffset" : 551,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Attack" ] ],
+    "referenceId" : "19",
+    "provenance" : {
+      "excerptString" : "uprising",
+      "beginningOffset" : 917,
+      "endingOffset" : 925,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+    "referenceId" : "20",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 288,
+      "endingOffset" : 292,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "21",
+    "provenance" : {
+      "excerptString" : " ",
+      "beginningOffset" : 0,
+      "endingOffset" : 1,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+    "referenceId" : "22",
+    "provenance" : {
+      "excerptString" : "incident",
+      "beginningOffset" : 846,
+      "endingOffset" : 854,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Attack" ] ],
+    "referenceId" : "23",
+    "provenance" : {
+      "excerptString" : "intifada",
+      "beginningOffset" : 892,
+      "endingOffset" : 900,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Shooting" ] ],
+    "referenceId" : "24",
+    "provenance" : {
+      "excerptString" : "shot",
+      "beginningOffset" : 76,
+      "endingOffset" : 80,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+    "referenceId" : "25",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 536,
+      "endingOffset" : 540,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Killing" ] ],
+    "referenceId" : "26",
+    "provenance" : {
+      "excerptString" : "killed",
+      "beginningOffset" : 943,
+      "endingOffset" : 949,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "27",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 536,
+      "endingOffset" : 540,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "27",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 456,
+      "endingOffset" : 460,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "27",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 288,
+      "endingOffset" : 292,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "28",
+    "provenance" : {
+      "excerptString" : "late Thursday",
+      "beginningOffset" : 381,
+      "endingOffset" : 394,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "NULL" ] ],
+    "referenceId" : "29",
+    "provenance" : {
+      "excerptString" : "an army",
+      "beginningOffset" : 356,
+      "endingOffset" : 363,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "NULL" ] ],
+    "referenceId" : "30",
+    "provenance" : {
+      "excerptString" : "the northern West Bank",
+      "beginningOffset" : 332,
+      "endingOffset" : 354,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "30",
+    "provenance" : {
+      "excerptString" : "an army spokeswoman",
+      "beginningOffset" : 356,
+      "endingOffset" : 375,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "GovernmentOrganization" ] ],
+    "referenceId" : "30",
+    "provenance" : {
+      "excerptString" : "the army",
+      "beginningOffset" : 782,
+      "endingOffset" : 790,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "30",
+    "provenance" : {
+      "excerptString" : "she",
+      "beginningOffset" : 558,
+      "endingOffset" : 561,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "GovernmentOrganization" ] ],
+    "referenceId" : "30",
+    "provenance" : {
+      "excerptString" : "army",
+      "beginningOffset" : 359,
+      "endingOffset" : 363,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "31",
+    "provenance" : {
+      "excerptString" : "Jewish",
+      "beginningOffset" : 311,
+      "endingOffset" : 317,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "CityTownOrVillage" ] ],
+    "referenceId" : "31",
+    "provenance" : {
+      "excerptString" : "a Jewish settlement",
+      "beginningOffset" : 309,
+      "endingOffset" : 328,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "31",
+    "provenance" : {
+      "excerptString" : "Jewish",
+      "beginningOffset" : 1024,
+      "endingOffset" : 1030,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "NULL" ] ],
+    "referenceId" : "32",
+    "provenance" : {
+      "excerptString" : "them",
+      "beginningOffset" : 296,
+      "endingOffset" : 300,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Attack" ] ],
+    "referenceId" : "33",
+    "provenance" : {
+      "excerptString" : "fled",
+      "beginningOffset" : 762,
+      "endingOffset" : 766,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "CityTownOrVillage" ] ],
+    "referenceId" : "34",
+    "provenance" : {
+      "excerptString" : "the northern Jordan Valley",
+      "beginningOffset" : 1054,
+      "endingOffset" : 1080,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+    "referenceId" : "35",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 456,
+      "endingOffset" : 460,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "CityTownOrVillage" ] ],
+    "referenceId" : "36",
+    "provenance" : {
+      "excerptString" : "a small Jewish settlement",
+      "beginningOffset" : 1016,
+      "endingOffset" : 1041,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "CityTownOrVillage" ] ],
+    "referenceId" : "37",
+    "provenance" : {
+      "excerptString" : "Hamra",
+      "beginningOffset" : 1007,
+      "endingOffset" : 1012,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "38",
+    "provenance" : {
+      "excerptString" : "who",
+      "beginningOffset" : 277,
+      "endingOffset" : 280,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "38",
+    "provenance" : {
+      "excerptString" : "a Palestinian gunman",
+      "beginningOffset" : 256,
+      "endingOffset" : 276,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "PoliticalParty" ] ],
+    "referenceId" : "38",
+    "provenance" : {
+      "excerptString" : "Palestinian",
+      "beginningOffset" : 905,
+      "endingOffset" : 916,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "NULL" ] ],
+    "referenceId" : "39",
+    "provenance" : {
+      "excerptString" : "FIXES toll)                                                                        Israeli troops",
+      "beginningOffset" : 148,
+      "endingOffset" : 245,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "39",
+    "provenance" : {
+      "excerptString" : "troops",
+      "beginningOffset" : 595,
+      "endingOffset" : 601,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "39",
+    "provenance" : {
+      "excerptString" : "Israeli troops",
+      "beginningOffset" : 231,
+      "endingOffset" : 245,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "GeopoliticalOrganization" ] ],
+    "referenceId" : "39",
+    "provenance" : {
+      "excerptString" : "Israeli",
+      "beginningOffset" : 231,
+      "endingOffset" : 238,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "39",
+    "provenance" : {
+      "excerptString" : "the body, FIXES toll)                                                                        Israeli troops",
+      "beginningOffset" : 138,
+      "endingOffset" : 245,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "39",
+    "provenance" : {
+      "excerptString" : "troops",
+      "beginningOffset" : 696,
+      "endingOffset" : 702,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "39",
+    "provenance" : {
+      "excerptString" : "his",
+      "beginningOffset" : 630,
+      "endingOffset" : 633,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "40",
+    "provenance" : {
+      "excerptString" : "705 Israelis",
+      "beginningOffset" : 984,
+      "endingOffset" : 996,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "NULL" ] ],
+    "referenceId" : "41",
+    "provenance" : {
+      "excerptString" : "West Bank",
+      "beginningOffset" : 94,
+      "endingOffset" : 103,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "42",
+    "provenance" : {
+      "excerptString" : "2,282 Palestinians",
+      "beginningOffset" : 961,
+      "endingOffset" : 979,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "UNKNOWN" ] ],
+    "referenceId" : "43",
+    "provenance" : {
+      "excerptString" : "incident",
+      "beginningOffset" : 846,
+      "endingOffset" : 854,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "44",
+    "provenance" : {
+      "excerptString" : "3,048 people",
+      "beginningOffset" : 930,
+      "endingOffset" : 942,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "Person" ] ],
+    "referenceId" : "45",
+    "provenance" : {
+      "excerptString" : "                                                         Palestinian gunman",
+      "beginningOffset" : 0,
+      "endingOffset" : 75,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "GeopoliticalOrganization" ] ],
+    "referenceId" : "45",
+    "provenance" : {
+      "excerptString" : "                                                         Palestinian",
+      "beginningOffset" : 0,
+      "endingOffset" : 68,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustEntityMention",
+    "types" : [ "java.util.HashSet", [ "NULL" ] ],
+    "referenceId" : "45",
+    "provenance" : {
+      "excerptString" : "Palestinian",
+      "beginningOffset" : 258,
+      "endingOffset" : 269,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "probability" : 1.0,
+    "weight" : 1.0
+  } ] ],
+  "relationMentions" : [ "java.util.ArrayList", [ {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Killing" ] ],
+      "referenceId" : "18",
+      "provenance" : {
+        "excerptString" : "killed",
+        "beginningOffset" : 545,
+        "endingOffset" : 551,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Patient",
+    "provenance" : {
+      "excerptString" : "killed him",
+      "beginningOffset" : 545,
+      "endingOffset" : 555,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Patient" ] ],
+      "referenceId" : "12",
+      "provenance" : {
+        "excerptString" : "him",
+        "beginningOffset" : 552,
+        "endingOffset" : 555,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Killing" ] ],
+      "referenceId" : "18",
+      "provenance" : {
+        "excerptString" : "killed",
+        "beginningOffset" : 545,
+        "endingOffset" : 551,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "DCT",
+    "provenance" : {
+      "excerptString" : "killed him",
+      "beginningOffset" : 545,
+      "endingOffset" : 555,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "DCT" ] ],
+      "referenceId" : "21",
+      "provenance" : {
+        "excerptString" : " ",
+        "beginningOffset" : 0,
+        "endingOffset" : 1,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Killing" ] ],
+      "referenceId" : "18",
+      "provenance" : {
+        "excerptString" : "killed",
+        "beginningOffset" : 545,
+        "endingOffset" : 551,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Agent",
+    "provenance" : {
+      "excerptString" : "killed him",
+      "beginningOffset" : 545,
+      "endingOffset" : 555,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Agent" ] ],
+      "referenceId" : "10",
+      "provenance" : {
+        "excerptString" : "they",
+        "beginningOffset" : 522,
+        "endingOffset" : 526,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Attack" ] ],
+      "referenceId" : "19",
+      "provenance" : {
+        "excerptString" : "uprising",
+        "beginningOffset" : 917,
+        "endingOffset" : 925,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Patient",
+    "provenance" : {
+      "excerptString" : "uprising, to 3,048 people killed",
+      "beginningOffset" : 917,
+      "endingOffset" : 949,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Patient" ] ],
+      "referenceId" : "16",
+      "provenance" : {
+        "excerptString" : "3,048 people killed",
+        "beginningOffset" : 930,
+        "endingOffset" : 949,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Attack" ] ],
+      "referenceId" : "19",
+      "provenance" : {
+        "excerptString" : "uprising",
+        "beginningOffset" : 917,
+        "endingOffset" : 925,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Tempex",
+    "provenance" : {
+      "excerptString" : "uprising, to 3,048 people killed",
+      "beginningOffset" : 917,
+      "endingOffset" : 949,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Tempex" ] ],
+      "referenceId" : "3",
+      "provenance" : {
+        "excerptString" : "29-month",
+        "beginningOffset" : 879,
+        "endingOffset" : 887,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+      "referenceId" : "27",
+      "provenance" : {
+        "excerptString" : "fire",
+        "beginningOffset" : 288,
+        "endingOffset" : 292,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Trigger",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 288,
+      "endingOffset" : 292,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Trigger" ] ],
+      "referenceId" : "27",
+      "provenance" : {
+        "excerptString" : "fire",
+        "beginningOffset" : 288,
+        "endingOffset" : 292,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+      "referenceId" : "27",
+      "provenance" : {
+        "excerptString" : "fire",
+        "beginningOffset" : 288,
+        "endingOffset" : 292,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Tempex",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 288,
+      "endingOffset" : 292,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Tempex" ] ],
+      "referenceId" : "28",
+      "provenance" : {
+        "excerptString" : "late Thursday",
+        "beginningOffset" : 381,
+        "endingOffset" : 394,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+      "referenceId" : "43",
+      "provenance" : {
+        "excerptString" : "incident",
+        "beginningOffset" : 846,
+        "endingOffset" : 854,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Tempex",
+    "provenance" : {
+      "excerptString" : "incident raises the toll for the 29-month",
+      "beginningOffset" : 846,
+      "endingOffset" : 887,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Tempex" ] ],
+      "referenceId" : "3",
+      "provenance" : {
+        "excerptString" : "29-month",
+        "beginningOffset" : 879,
+        "endingOffset" : 887,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+      "referenceId" : "43",
+      "provenance" : {
+        "excerptString" : "incident",
+        "beginningOffset" : 846,
+        "endingOffset" : 854,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Trigger",
+    "provenance" : {
+      "excerptString" : "incident raises the toll for the 29-month",
+      "beginningOffset" : 846,
+      "endingOffset" : 887,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Trigger" ] ],
+      "referenceId" : "43",
+      "provenance" : {
+        "excerptString" : "incident",
+        "beginningOffset" : 846,
+        "endingOffset" : 854,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Attack" ] ],
+      "referenceId" : "23",
+      "provenance" : {
+        "excerptString" : "intifada",
+        "beginningOffset" : 892,
+        "endingOffset" : 900,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Trigger",
+    "provenance" : {
+      "excerptString" : "intifada",
+      "beginningOffset" : 892,
+      "endingOffset" : 900,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Trigger" ] ],
+      "referenceId" : "23",
+      "provenance" : {
+        "excerptString" : "intifada",
+        "beginningOffset" : 892,
+        "endingOffset" : 900,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Attack" ] ],
+      "referenceId" : "23",
+      "provenance" : {
+        "excerptString" : "intifada",
+        "beginningOffset" : 892,
+        "endingOffset" : 900,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Tempex",
+    "provenance" : {
+      "excerptString" : "intifada",
+      "beginningOffset" : 892,
+      "endingOffset" : 900,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Tempex" ] ],
+      "referenceId" : "3",
+      "provenance" : {
+        "excerptString" : "29-month",
+        "beginningOffset" : 879,
+        "endingOffset" : 887,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Shooting" ] ],
+      "referenceId" : "24",
+      "provenance" : {
+        "excerptString" : "shot",
+        "beginningOffset" : 76,
+        "endingOffset" : 80,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Tempex",
+    "provenance" : {
+      "excerptString" : "shot dead outside West Bank settlement (ADDS weapons found by the body, FIXES toll)                                                                        Israeli troops shot dead a Palestinian gunman who opened fire on them outside a Jewish settlement in the northern West Bank, an army spokeswoman said late Thursday",
+      "beginningOffset" : 76,
+      "endingOffset" : 394,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Tempex" ] ],
+      "referenceId" : "28",
+      "provenance" : {
+        "excerptString" : "late Thursday",
+        "beginningOffset" : 381,
+        "endingOffset" : 394,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Shooting" ] ],
+      "referenceId" : "24",
+      "provenance" : {
+        "excerptString" : "shot",
+        "beginningOffset" : 76,
+        "endingOffset" : 80,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Trigger",
+    "provenance" : {
+      "excerptString" : "shot dead outside West Bank settlement (ADDS weapons found by the body, FIXES toll)                                                                        Israeli troops shot dead a Palestinian gunman who opened fire on them outside a Jewish settlement in the northern West Bank, an army spokeswoman said late Thursday",
+      "beginningOffset" : 76,
+      "endingOffset" : 394,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Trigger" ] ],
+      "referenceId" : "24",
+      "provenance" : {
+        "excerptString" : "shot",
+        "beginningOffset" : 76,
+        "endingOffset" : 80,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+      "referenceId" : "27",
+      "provenance" : {
+        "excerptString" : "fire",
+        "beginningOffset" : 536,
+        "endingOffset" : 540,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "DCT",
+    "provenance" : {
+      "excerptString" : "                                                         Palestinian gunman shot dead outside West Bank settlement (ADDS weapons found by the body, FIXES toll)                                                                        Israeli troops shot dead a Palestinian gunman who opened fire on them outside a Jewish settlement in the northern West Bank, an army spokeswoman said late Thursday.          \"IDF forces spotted a suspicious figure who opened fire towards them by the fence surrounding Hamra (settlement), so they returned fire",
+      "beginningOffset" : 0,
+      "endingOffset" : 540,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "DCT" ] ],
+      "referenceId" : "21",
+      "provenance" : {
+        "excerptString" : " ",
+        "beginningOffset" : 0,
+        "endingOffset" : 1,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+      "referenceId" : "27",
+      "provenance" : {
+        "excerptString" : "fire",
+        "beginningOffset" : 536,
+        "endingOffset" : 540,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Trigger",
+    "provenance" : {
+      "excerptString" : "                                                         Palestinian gunman shot dead outside West Bank settlement (ADDS weapons found by the body, FIXES toll)                                                                        Israeli troops shot dead a Palestinian gunman who opened fire on them outside a Jewish settlement in the northern West Bank, an army spokeswoman said late Thursday.          \"IDF forces spotted a suspicious figure who opened fire towards them by the fence surrounding Hamra (settlement), so they returned fire",
+      "beginningOffset" : 0,
+      "endingOffset" : 540,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Trigger" ] ],
+      "referenceId" : "27",
+      "provenance" : {
+        "excerptString" : "fire",
+        "beginningOffset" : 536,
+        "endingOffset" : 540,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Shooting" ] ],
+      "referenceId" : "4",
+      "provenance" : {
+        "excerptString" : "shot",
+        "beginningOffset" : 246,
+        "endingOffset" : 250,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Trigger",
+    "provenance" : {
+      "excerptString" : "shot",
+      "beginningOffset" : 246,
+      "endingOffset" : 250,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Trigger" ] ],
+      "referenceId" : "4",
+      "provenance" : {
+        "excerptString" : "shot",
+        "beginningOffset" : 246,
+        "endingOffset" : 250,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Shooting" ] ],
+      "referenceId" : "4",
+      "provenance" : {
+        "excerptString" : "shot",
+        "beginningOffset" : 246,
+        "endingOffset" : 250,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Tempex",
+    "provenance" : {
+      "excerptString" : "shot",
+      "beginningOffset" : 246,
+      "endingOffset" : 250,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Tempex" ] ],
+      "referenceId" : "28",
+      "provenance" : {
+        "excerptString" : "late Thursday",
+        "beginningOffset" : 381,
+        "endingOffset" : 394,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Attack" ] ],
+      "referenceId" : "33",
+      "provenance" : {
+        "excerptString" : "fled",
+        "beginningOffset" : 762,
+        "endingOffset" : 766,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Patient",
+    "provenance" : {
+      "excerptString" : "fled the scene",
+      "beginningOffset" : 762,
+      "endingOffset" : 776,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Patient" ] ],
+      "referenceId" : "13",
+      "provenance" : {
+        "excerptString" : "the scene",
+        "beginningOffset" : 767,
+        "endingOffset" : 776,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Attack" ] ],
+      "referenceId" : "33",
+      "provenance" : {
+        "excerptString" : "fled",
+        "beginningOffset" : 762,
+        "endingOffset" : 766,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "DCT",
+    "provenance" : {
+      "excerptString" : "fled the scene",
+      "beginningOffset" : 762,
+      "endingOffset" : 776,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "DCT" ] ],
+      "referenceId" : "21",
+      "provenance" : {
+        "excerptString" : " ",
+        "beginningOffset" : 0,
+        "endingOffset" : 1,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Attack" ] ],
+      "referenceId" : "33",
+      "provenance" : {
+        "excerptString" : "fled",
+        "beginningOffset" : 762,
+        "endingOffset" : 766,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Agent",
+    "provenance" : {
+      "excerptString" : "fled the scene",
+      "beginningOffset" : 762,
+      "endingOffset" : 776,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Agent" ] ],
+      "referenceId" : "7",
+      "provenance" : {
+        "excerptString" : "a possible second attacker",
+        "beginningOffset" : 722,
+        "endingOffset" : 748,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+      "referenceId" : "35",
+      "provenance" : {
+        "excerptString" : "fire",
+        "beginningOffset" : 456,
+        "endingOffset" : 460,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Trigger",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 456,
+      "endingOffset" : 460,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Trigger" ] ],
+      "referenceId" : "35",
+      "provenance" : {
+        "excerptString" : "fire",
+        "beginningOffset" : 456,
+        "endingOffset" : 460,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Bombing" ] ],
+      "referenceId" : "35",
+      "provenance" : {
+        "excerptString" : "fire",
+        "beginningOffset" : 456,
+        "endingOffset" : 460,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "DCT",
+    "provenance" : {
+      "excerptString" : "fire",
+      "beginningOffset" : 456,
+      "endingOffset" : 460,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "DCT" ] ],
+      "referenceId" : "21",
+      "provenance" : {
+        "excerptString" : " ",
+        "beginningOffset" : 0,
+        "endingOffset" : 1,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Killing" ] ],
+      "referenceId" : "26",
+      "provenance" : {
+        "excerptString" : "killed",
+        "beginningOffset" : 943,
+        "endingOffset" : 949,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Tempex",
+    "provenance" : {
+      "excerptString" : "29-month-old intifada, or Palestinian uprising, to 3,048 people killed",
+      "beginningOffset" : 879,
+      "endingOffset" : 949,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Tempex" ] ],
+      "referenceId" : "3",
+      "provenance" : {
+        "excerptString" : "29-month",
+        "beginningOffset" : 879,
+        "endingOffset" : 887,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  }, {
+    "@class" : "com.sri.faust.model.FaustRelationMention",
+    "subject" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Killing" ] ],
+      "referenceId" : "26",
+      "provenance" : {
+        "excerptString" : "killed",
+        "beginningOffset" : 943,
+        "endingOffset" : 949,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "predicate" : "Trigger",
+    "provenance" : {
+      "excerptString" : "29-month-old intifada, or Palestinian uprising, to 3,048 people killed",
+      "beginningOffset" : 879,
+      "endingOffset" : 949,
+      "document" : "AFP_ENG_20030306.0751"
+    },
+    "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+    "object" : {
+      "@class" : "com.sri.faust.model.FaustEntityMention",
+      "types" : [ "java.util.HashSet", [ "Trigger" ] ],
+      "referenceId" : "26",
+      "provenance" : {
+        "excerptString" : "killed",
+        "beginningOffset" : 943,
+        "endingOffset" : 949,
+        "document" : "AFP_ENG_20030306.0751"
+      },
+      "sourceId" : "UI-EVENT-EXTRACTOR-0.2",
+      "probability" : 1.0,
+      "weight" : 1.0
+    },
+    "probability" : 1.0,
+    "weight" : 1.0
+  } ] ],
+  "properties" : null
+}

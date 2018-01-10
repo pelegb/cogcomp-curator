@@ -1,0 +1,143 @@
+This version of the Charniak server -- and of Charniak's parser itself
+-- has been altered to work with the Cognitive Computation Group's 
+Curator resource manager. It presently does NOT read from the command
+line; instead, it processes its command line arguments from a configuration
+file, and runs on text in a file specified there. 
+
+
+TODO
+
+There's a ridiculous level of overlap in the two versions of the thrift
+server -- this should be factored out into a separate class. 
+
+The behavior is not specified (i.e. not yet understood) if the k-best
+parser can't generate as many parses as the number specified in the
+config file for a given sentence. 
+
+
+
+
+
+INSTALLATION
+
+You need to install Thrift version 0.4.0, and to have the relevant thrift
+directories on your path.  These are set in the Makefile 
+(parser05May26fixed/PARSE/makefile) variables DEP_HOME, 
+THRIFT_INC_DIR, THRIFT_LIB_DIR. There is also a dependency on 
+the thrift interfaces built as part of the Curator install, set
+in the variable THRIFT_INTERFACE_HOME.  Finally, there is a dependency
+on Boost, specified in the makefile variable BOOST_DIR. 
+
+After checking this charniak server source out from SVN/untarring it, 
+from the main directory of the CharniakServer2.0 distribution, run the
+commands:
+
+
+%  cd parser05May26fixed/PARSE
+%  make charniakThriftServer
+%  make charniakThriftServerKbest
+
+To run: 
+
+% cd ../.. 
+
+(back to main directory, CharniakServer2.0)
+
+%  ./start_charniak.sh port idString
+%  ./start_kbestcharniak.sh port idstring
+
+
+
+GENERAL NOTES
+
+There are two versions of this parser: a single-best (Parser) and a k-best
+(MultiParser), corresponding to the invocations above. 
+
+The parser uses a configuration file (default: 'config.txt') that contains
+a standard command line for the original Charniak parser and two
+additional fields, one per line: "SENTENCE_VIEW" and "TOK_VIEW",
+which name the fields of the Curator Record that the server is given 
+when called to read the sentence-level and word-level segmentations
+respectively.  The values appearing with these names should correspond
+to values assigned to LabelViews in the Curator configuration file:
+if they are not, the Curator will have assigned this content different
+names, and this instance of the parser will not find them, resulting
+in exceptions and woe all round. 
+
+The command line part of the config file can include the option "-K":
+if present, this tells the parser (or k-best parser) to use the
+token view already present in the Curator Record view with the
+name specified with the TOK_VIEW entry in the config file. If it is
+not present, the Charniak parser will attempt to tokenize the text
+itself -- but it's pretty weak, so probably not the best bet. It will
+still use the Curator Record's sentence boundaries. 
+
+The Charniak parser does not handle wide character encodings. 
+Since wide characters generally wreak havoc with the parser output
+by corrupting character offsets, this version of the code
+checks input for wide characters and throws an exception 
+if any are found.  Not exactly in the spirit of multinational
+harmony we'd like, but it's sufficient evil for the day.
+
+
+K-BEST SERVER ONLY
+
+The K-Best server takes an option "-P <N>" in the command line part of
+the config file; "<N>" corresponds to the number of parses you wish it
+to provide. 
+
+The K-Best server returns a list of forests: each forest corresponds to 
+the parses for the set of sentences in Record (so the first Forest in
+the list contains the best parse, the second contains the second-best
+parse etc.).
+
+
+CHARNIAK THRIFT SERVER
+
+Significant changes were made to the Charniak Parser's code
+to track character offsets in the original string, and map the 
+output back to the original string. It also now reads from a 
+configuration file rather than the command line.
+
+The command line version of the tool runs in much the same way
+as the original, with the exception of the parameters being specified
+in CharniakParser/config.txt; rather than reading from STDIN,
+parseIt processes the text in the file specified by the last argument.
+
+The server takes a port number as its sole argument, then listens on
+this port for requests from the Curator. 
+It expects a single sentence at a time, and writes its response
+into a forest.  For the main instance, charniakThriftSerer, 
+this is the single best parse tree for the input sentence.
+
+To run: 
+
+parser05May26fixed/PARSE/charniakThriftServer 9987 >& cts.log &
+
+
+
+CHARNIAK K-BEST THRIFT SERVER
+
+Again, significant changes to fundamental data structures had to be 
+made to make the k-best functionality work with thrift/Curator. 
+In other words, maybe I broke something and don't know it yet. 
+For this reason, the k-best charniak thrift server is separate/
+
+The original simply had a hard-coded preprocessor constant 
+used in a number of different places.  Now it's a parameter, given
+by "-P" in config.txt -- "-P7" would mean, "return the 7 best parses".
+
+The command line version of the tool reads the config file and runs
+on the text file specified there as the last argument. 
+
+To run:
+
+parser05May26fixed/PARSE/charniakThriftServerKBest 9986 >& ctskb.log &
+
+
+
+
+BUGS
+
+Presently, there is an extra whitespace attached to the leading token 
+in a given sentence. 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- this is an example of an annoators configuration file that is purely
+     local -->
+
+<curator-annotators>
+<annotator>
+  <type>multilabeler</type>
+  <field>sentences</field>
+  <field>tokens</field>
+  <local>edu.illinois.cs.cogcomp.annotation.handler.IllinoisTokenizerHandler</local>
+</annotator>
+
+<annotator>
+  <type>labeler</type>
+  <field>pos</field>
+  <local>edu.illinois.cs.cogcomp.annotation.handler.IllinoisPOSHandler</local>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+</annotator>
+
+<annotator>
+  <type>labeler</type>
+  <field>chunk</field>
+  <local>edu.illinois.cs.cogcomp.annotation.handler.IllinoisChunkerHandler</local>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+  <requirement>pos</requirement>
+</annotator>
+
+<!--
+we cannot run the ner local at the same time as any other annotators that use
+lbj because of version mismatches!
+<annotator>
+  <type>labeler</type>
+  <field>ner</field>
+  <local>edu.illinois.cs.cogcomp.annotation.handler.IllinoisNERHandler</local>
+</annotator>
+-->
+
+<annotator>
+  <type>clustergenerator</type>
+  <field>coref</field>
+  <local>edu.illinois.cs.cogcomp.annotation.handler.IllinoisCorefHandler</local>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+  <requirement>pos</requirement>
+  <requirement>ner</requirement>
+</annotator>
+
+<annotator>
+  <type>multiparser</type>
+  <field>stanfordParse</field>
+  <field>stanfordDep</field>
+  <local>edu.illinois.cs.cogcomp.annotation.handler.StanfordParserHandler</local>
+  <requirement>tokens</requirement>
+  <requirement>sentences</requirement>
+</annotator>
+
+</curator-annotators>

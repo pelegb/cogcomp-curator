@@ -1,0 +1,297 @@
+<project name="curator-packages" default="dist" basedir=".">
+
+	<property name="resources" location="resources" />
+
+	<property name="dist.dir" location="dist" />
+	<property name="dist.bin" location="${dist.dir}/bin" />
+	<property name="dist.components" location="${dist.dir}/components" />
+	<property name="dist.configs" location="${dist.dir}/configs" />
+	<property name="dist.data" location="${dist.dir}/data" />
+	<property name="dist.lib" location="${dist.dir}/lib" />
+	<property name="dist.doc" location="${dist.dir}/docs" />
+	<property name="dist.clients" location="${dist.dir}/client-examples" />
+	<property name="dist.dbarchive" location="${dist.dir}/db-archive" />
+	<property name="dist.dblog" location="${dist.dir}/db-log" />
+
+	<property name="web.dir" location="website" />
+	<property name="web.demo" location="${web.dir}/demo" />
+	<property name="web.servers" location="${web.dir}/servers" />
+
+	<property name="lib.dir" location="lib" />
+
+        <property name="charniak.source.dir" location="curator-annotators/CharniakServer2.0"/>
+	<property name="dist.charniak" location="dist/CharniakServer"/>
+
+	<path id="javadoc.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<macrodef name="annotator-dist">
+		<attribute name="annotator" default="NOT SET" />
+		<sequential>
+			<ant antfile="build.xml" dir="curator-annotators/@{annotator}" target="dist" />
+			<copy file="curator-annotators/@{annotator}/dist/@{annotator}-server.jar" todir="${dist.components}" overwrite="true" />
+			<copy file="curator-annotators/@{annotator}/@{annotator}-server.sh" todir="${dist.bin}" overwrite="true" failonerror="false" />
+			<copy file="curator-annotators/@{annotator}/@{annotator}-server.pl" todir="${dist.bin}" overwrite="true" failonerror="false" />
+			<copy todir="${dist.configs}">
+				<fileset dir="curator-annotators/@{annotator}/configs" erroronmissingdir="false">
+					<include name="*" />
+				</fileset>
+			</copy>
+			<copy file="curator-annotators/@{annotator}/README.dist" tofile="${dist.doc}/README.@{annotator}" overwrite="true" />
+			<copy todir="${dist.data}" flatten="false" overwrite="true" failonerror="false">
+				<fileset dir="curator-annotators/@{annotator}/data">
+					<include name="**/*" />
+				</fileset>
+			</copy>
+			
+		</sequential>
+	</macrodef>
+
+	<macrodef name="annotator-clean">
+		<attribute name="annotator" default="NOT SET" />
+		<sequential>
+			<ant antfile="build.xml" dir="curator-annotators/@{annotator}" target="clean" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="annotator-doc">
+		<attribute name="annotator" default="NOT SET" />
+		<sequential>
+			<md-doc infile="${dist.doc}/README.@{annotator}" outfile="${web.servers}/@{annotator}.README.html" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="annotator-test">
+		<attribute name="annotator" default="NOT SET" />
+		<sequential>
+			<ant antfile="build.xml" dir="curator-annotators/@{annotator}" target="test" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="md-doc">
+		<attribute name="infile" default="NOT SET" />
+		<attribute name="outfile" default="NOT SET" />
+		<sequential>
+			<exec executable="Markdown.pl" failonerror="true" dir="${basedir}" output="@{outfile}.output">
+				<arg line="@{infile}" />
+			</exec>
+			<exec executable="cat" failonerror="true" dir="${resources}" output="@{outfile}">
+				<arg line="template.html @{outfile}.output footer.html" />
+			</exec>
+			<delete file="@{outfile}.output" />
+		</sequential>
+	</macrodef>
+
+	<target name="clean" description="Clean build and distribution artifacts">
+		<delete dir="${dist.dir}" />
+		<delete dir="${web.dir}" />
+        	<annotator-clean annotator="illinois-abstract" />
+		<annotator-clean annotator="illinois-tokenizer" />
+		<annotator-clean annotator="illinois-pos" />
+		<annotator-clean annotator="illinois-chunker" />
+		<annotator-clean annotator="illinois-ner-extended" /> 
+		<annotator-clean annotator="illinois-coref-ace" />
+		<annotator-clean annotator="illinois-verb-srl" />
+		<annotator-clean annotator="illinois-nom-srl" />
+		<annotator-clean annotator="stanford-parser" />
+		<annotator-clean annotator="illinois-wikifier" />
+		<annotator-clean annotator="illinois-lemmatizer" />
+		<annotator-clean annotator="illinois-quantifier" />
+		<ant antfile="build.xml" dir="curator-interfaces" target="clean" />
+		<ant antfile="build.xml" dir="curator-server" target="clean" />
+	</target>
+
+
+	<target name="-dist-annotators">
+        <annotator-dist annotator="illinois-abstract" />
+		<annotator-dist annotator="illinois-tokenizer" />
+		<annotator-dist annotator="illinois-pos" />
+		<annotator-dist annotator="illinois-chunker" />
+		<annotator-dist annotator="illinois-ner-extended" />
+		<annotator-dist annotator="illinois-coref-ace" />
+		<annotator-dist annotator="stanford-parser" />
+		<annotator-dist annotator="illinois-verb-srl" />
+		<annotator-dist annotator="illinois-nom-srl" />
+		<annotator-dist annotator="illinois-wikifier" />
+		<annotator-dist annotator="illinois-lemmatizer" />
+<!--		<annotator-dist annotator="illinois-quantifier" /> -->
+
+	</target>
+
+	<target name="-dist-init">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.bin}" />
+		<mkdir dir="${dist.lib}" />
+		<mkdir dir="${dist.components}" />
+		<mkdir dir="${dist.configs}" />
+		<mkdir dir="${dist.data}" />
+		<mkdir dir="${dist.doc}" />
+		<mkdir dir="${dist.clients}" />
+		<mkdir dir="${dist.charniak}" />
+		<mkdir dir="${dist.dbarchive}" />
+
+	</target>
+
+	<target name="-dist-interfaces" depends="-dist-init">
+
+		<ant antfile="build.xml" dir="curator-interfaces" target="dist" />
+		<copy file="curator-interfaces/dist/curator-interfaces.jar" todir="${dist.components}" overwrite="true" />
+
+		<copy todir="${dist.components}">
+			<fileset dir="curator-interfaces">
+				<include name="gen-*/**" />
+				<exclude name="gen-java/**" />
+				<exclude name="gen-html/**" />
+			</fileset>
+		</copy>
+
+		<copy todir="${dist.doc}/interfaces">
+			<fileset dir="curator-interfaces/gen-html" />
+		</copy>
+
+	</target>
+
+	<target name="-dist-server" depends="-dist-init,-dist-annotators">
+
+		<ant antfile="build.xml" dir="curator-server" target="dist" />
+		<copy file="curator-server/dist/curator-server.jar" todir="${dist.components}" overwrite="true" />
+
+		<copy todir="${dist.configs}">
+			<fileset dir="curator-server/configs">
+				<include name="*" />
+			</fileset>
+		</copy>
+		<copy file="curator-server/README.dist" tofile="${dist.doc}/README.curator-server" overwrite="true" />
+
+	</target>
+
+
+	<target name="dist" description="Build distribution" depends="-dist-init,-dist-interfaces,-dist-annotators,-dist-server">
+
+<!--
+		<copy file="${resources}/build.dist.xml" tofile="${dist.dir}/build.xml" overwrite="true" />
+		<copy file="${resources}/ivy.dist.xml" tofile="${dist.dir}/ivy.xml" overwrite="true" />
+-->
+		<copy file="${resources}/logback.xml" tofile="${dist.dir}/logback.xml" overwrite="true" />
+<!--
+		<copy file="${resources}/INSTALL.dist" tofile="${dist.dir}/INSTALL" overwrite="true" />
+		<copy file="${resources}/README.dist" tofile="${dist.dir}/README" overwrite="true" />
+		<copy file="${resources}/bootstrap.dist.sh" tofile="${dist.dir}/bootstrap.sh" overwrite="true" />
+-->
+		<copy file="${resources}/startServers.dist.sh" tofile="${dist.dir}/startServers.sh" overwrite="true" />
+
+		<copy todir="${dist.lib}" flatten="true" overwrite="true">
+			<fileset dir="${lib.dir}">
+				<include name="**/*.jar" />
+				<exclude name="**/junit-*.jar" />
+				<exclude name="**/cobertura-*.jar" />
+			</fileset>
+		</copy>
+                <copy todir="${dist.charniak}" overwrite="true">
+                        <fileset dir="${charniak.source.dir}">
+                                <include name="**/*"/>
+                        </fileset>
+                </copy>
+
+
+
+		<copy todir="${dist.bin}">
+			<fileset dir="curator-server/scripts" />
+		</copy>
+		<copy file="${resources}/runIt.dist.pl" tofile="${dist.bin}/runIt.pl" overwrite="true" />
+
+		<chmod dir="${dist.bin}" perm="ugo+rx" includes="**/*" />
+		<chmod dir="${dist.dir}" perm="ugo+rx" includes="**/*.sh" />
+
+		<copy todir="${dist.clients}">
+			<fileset dir="curator-clients" />
+		</copy>
+
+		<copy file="${dist.clients}/java/build.dist.xml" tofile="${dist.clients}/java/build.xml" />
+		<copy file="${dist.clients}/java/README.dist" tofile="${dist.clients}/java/README" />
+
+                <untar src="${resources}/WordNet.tgz" dest="." compression="gzip" />
+	</target>
+
+	<target name="website" description="Build website interface components" depends="dist">
+		<mkdir dir="${web.dir}" />
+		<mkdir dir="${web.demo}" />
+		<mkdir dir="${web.servers}" />
+
+		<copy todir="${web.dir}/interfaces">
+			<fileset dir="curator-interfaces/gen-html" />
+		</copy>
+		<exec executable="pycco" failonerror="true" dir="curator-clients/java">
+			<arg line="CuratorDemo.java" />
+		</exec>
+		<copy file="curator-clients/java/docs/CuratorDemo.html" todir="${web.dir}" />
+		<copy file="curator-clients/java/docs/pycco.css" todir="${web.dir}" />
+		<copy file="curator-clients/java/CuratorDemo.java" todir="${web.dir}" />
+
+		<md-doc infile="${dist.dir}/INSTALL" outfile="${web.dir}/INSTALL.html" />
+		<md-doc infile="${dist.dir}/QUICKSTART" outfile="${web.dir}/QUICKSTART.html" />
+		<md-doc infile="${dist.dir}/README" outfile="${web.dir}/README.html" />
+
+		<copy todir="${web.demo}">
+			<fileset dir="curator-clients/php" />
+		</copy>
+		<copy todir="${web.demo}/thrift/packages">
+			<fileset dir="curator-interfaces/gen-php" />
+		</copy>
+        	<annotator-doc annotator="illinois-abstract" />
+		<annotator-doc annotator="curator-server" />
+		<annotator-doc annotator="illinois-tokenizer" />
+		<annotator-doc annotator="illinois-pos" />
+		<annotator-doc annotator="illinois-chunker" />
+		<annotator-doc annotator="illinois-coref" />
+		<annotator-doc annotator="stanford-parser" />
+		<annotator-doc annotator="illinois-lemmatizer" />
+		<annotator-doc annotator="illinois-wikifier" />
+		<annotator-doc annotator="illinois-verb-srl" />
+		<annotator-doc annotator="illinois-nom-srl" />
+		<annotator-doc annotator="illinois-prep-srl" />
+		<annotator-doc annotator="illinois-quantifier" />
+	</target>
+
+	<target name="test" description="Run unit tests" depends="dist">
+		<annotator-test annotator="illinois-tokenizer" />
+		<annotator-test annotator="illinois-pos" />
+		<annotator-test annotator="illinois-chunker" />
+		<!-- <annotator-test annotator="illinois-coref" /> -->
+		<annotator-test annotator="stanford-parser" />
+		<ant antfile="build.xml" dir="curator-server" target="test" />
+	</target>
+
+	<target name="javadoc" description="Generate api documentation" depends="dist">
+		<javadoc destdir="${dist.doc}/api" classpathref="javadoc.classpath" author="true" version="true" use="true" windowtitle="Curator API">
+
+			<fileset dir="curator-interfaces/gen-java" defaultexcludes="yes" />
+			<fileset dir="curator-server/src" defaultexcludes="yes" />
+			<fileset dir="curator-annotators" defaultexcludes="yes" />
+
+			<doctitle>
+				<![CDATA[<h1>Curator</h1>]]>
+			</doctitle>
+		    <bottom>
+			    <![CDATA[<i>Copyright &#169; 2010-2011, Cognitive Computation Group.</i>]]>
+		    </bottom>
+	    
+		    <tag name="todo" scope="all" description="To do:" />
+	        
+			<group title="Group 1 Packages" packages="com.dummy.test.a*" />
+	        <group title="Group 2 Packages" packages="com.dummy.test.b*:com.dummy.test.c*" />
+	        
+			<link offline="true" href="http://download.oracle.com/javase/6/docs/api/" packagelistLoc="C:\tmp" />
+	        <link href="http://developer.java.sun.com/developer/products/xml/docs/api/" />
+
+        </javadoc>
+	</target>
+
+	<target name="coverage-report" description="Run test coverage reports" depends="dist">
+	      <ant antfile="build.xml" dir="curator-server" target="coverage-report" />
+	</target>
+
+</project>

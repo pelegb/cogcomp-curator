@@ -1,0 +1,10 @@
+The Server Monitor script starts a process accessed by the connect_to_server_monitor.pl cgi script. This process reads an xml config file that specifies identifiers, ports, and start scripts for a set of NLP components accessed as web demos. This specific instance is set up for the Illinois Curator, itself a manager of NLP components. Via the connect_to_server_monitor.pl script, the server monitor starts and stops individual components. 
+
+TO RUN SERVER MONITOR FOR THE CURATOR
+
+you must first 
+
+source $CURATOR_HOME/setEnvVars.sh
+
+as this sets some environment variables needed by the Curator components. 
+

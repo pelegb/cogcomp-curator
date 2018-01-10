@@ -1,0 +1,160 @@
+g++  -I/shared/grandpa/opt/include -I/usr/lib/jvm/java-1.6.0-sun/bin/include -L/shared/grandpa/opt/lib  charniakThriftServer_kBest.C   -o charniakThriftServer_kBest
+charniakThriftServer_kBest.C:46:38: error: protocol/TBinaryProtocol.h: No such file or directory
+charniakThriftServer_kBest.C:47:34: error: server/TSimpleServer.h: No such file or directory
+charniakThriftServer_kBest.C:48:37: error: transport/TServerSocket.h: No such file or directory
+charniakThriftServer_kBest.C:49:41: error: transport/TBufferTransports.h: No such file or directory
+charniakThriftServer_kBest.C:53:21: error: Curator.h: No such file or directory
+charniakThriftServer_kBest.C:54:24: error: base_types.h: No such file or directory
+charniakThriftServer_kBest.C:55:27: error: archive_types.h: No such file or directory
+charniakThriftServer_kBest.C:56:21: error: Parser.h: No such file or directory
+AnswerTree.h:70: error: ‘NTH’ was not declared in this scope
+AnswerTree.h:71: error: ‘NTH’ was not declared in this scope
+AnswerTree.h: In constructor ‘AnsTreeStr::AnsTreeStr(int)’:
+AnswerTree.h:64: error: ‘NTH’ was not declared in this scope
+AnswerTree.h:66: error: ‘probs’ was not declared in this scope
+charniakThriftServer_kBest.C: At global scope:
+charniakThriftServer_kBest.C:60: error: ‘apache’ has not been declared
+charniakThriftServer_kBest.C:60: error: ‘thrift’ is not a namespace-name
+charniakThriftServer_kBest.C:60: error: expected namespace-name before ‘;’ token
+charniakThriftServer_kBest.C:61: error: ‘apache’ has not been declared
+charniakThriftServer_kBest.C:61: error: ‘protocol’ is not a namespace-name
+charniakThriftServer_kBest.C:61: error: expected namespace-name before ‘;’ token
+charniakThriftServer_kBest.C:62: error: ‘apache’ has not been declared
+charniakThriftServer_kBest.C:62: error: ‘transport’ is not a namespace-name
+charniakThriftServer_kBest.C:62: error: expected namespace-name before ‘;’ token
+charniakThriftServer_kBest.C:63: error: ‘apache’ has not been declared
+charniakThriftServer_kBest.C:63: error: ‘server’ is not a namespace-name
+charniakThriftServer_kBest.C:63: error: expected namespace-name before ‘;’ token
+charniakThriftServer_kBest.C:64: error: ‘cogcomp’ has not been declared
+charniakThriftServer_kBest.C:64: error: ‘thrift’ is not a namespace-name
+charniakThriftServer_kBest.C:64: error: expected namespace-name before ‘;’ token
+charniakThriftServer_kBest.C:65: error: ‘cogcomp’ has not been declared
+charniakThriftServer_kBest.C:65: error: ‘base’ is not a namespace-name
+charniakThriftServer_kBest.C:65: error: expected namespace-name before ‘;’ token
+charniakThriftServer_kBest.C:67: error: ‘boost’ has not been declared
+charniakThriftServer_kBest.C:69: error: ‘cogcomp’ has not been declared
+charniakThriftServer_kBest.C:69: error: ‘parser’ is not a namespace-name
+charniakThriftServer_kBest.C:69: error: expected namespace-name before ‘;’ token
+charniakThriftServer_kBest.C:72: error: expected ‘,’ or ‘...’ before ‘&’ token
+charniakThriftServer_kBest.C:72: error: ISO C++ forbids declaration of ‘Node’ with no type
+charniakThriftServer_kBest.C:73: error: expected ‘,’ or ‘...’ before ‘&’ token
+charniakThriftServer_kBest.C:73: error: ISO C++ forbids declaration of ‘Tree’ with no type
+charniakThriftServer_kBest.C:74: error: expected ‘,’ or ‘...’ before ‘&’ token
+charniakThriftServer_kBest.C:74: error: ISO C++ forbids declaration of ‘Forest’ with no type
+charniakThriftServer_kBest.C:87: error: expected class-name before ‘{’ token
+charniakThriftServer_kBest.C:143: error: ‘cogcomp’ has not been declared
+charniakThriftServer_kBest.C:143: error: expected ‘,’ or ‘...’ before ‘&’ token
+charniakThriftServer_kBest.C:164: error: ‘cogcomp’ has not been declared
+charniakThriftServer_kBest.C:164: error: expected ‘,’ or ‘...’ before ‘&’ token
+charniakThriftServer_kBest.C:308: error: ‘cogcomp’ has not been declared
+charniakThriftServer_kBest.C:308: error: expected ‘,’ or ‘...’ before ‘&’ token
+charniakThriftServer_kBest.C:374: error: ‘Node’ was not declared in this scope
+charniakThriftServer_kBest.C:374: error: template argument 1 is invalid
+charniakThriftServer_kBest.C:374: error: template argument 2 is invalid
+charniakThriftServer_kBest.C: In member function ‘void ParserHandler::parseText(int)’:
+charniakThriftServer_kBest.C:146: error: ‘Tree’ was not declared in this scope
+charniakThriftServer_kBest.C:146: error: expected `;' before ‘parseTree’
+charniakThriftServer_kBest.C:147: error: ‘parseTree’ was not declared in this scope
+charniakThriftServer_kBest.C:147: error: ‘input’ was not declared in this scope
+charniakThriftServer_kBest.C:149: error: ‘_return’ was not declared in this scope
+charniakThriftServer_kBest.C: In member function ‘void ParserHandler::parseSentence(int)’:
+charniakThriftServer_kBest.C:171: error: ‘input_’ was not declared in this scope
+charniakThriftServer_kBest.C:176: error: expected type-specifier before ‘AnnotationFailedException’
+charniakThriftServer_kBest.C:176: error: expected `)' before ‘&’ token
+charniakThriftServer_kBest.C:176: error: expected `{' before ‘&’ token
+charniakThriftServer_kBest.C:176: error: ‘e’ was not declared in this scope
+charniakThriftServer_kBest.C:176: error: expected `;' before ‘)’ token
+charniakThriftServer_kBest.C:185: error: ‘input_’ was not declared in this scope
+charniakThriftServer_kBest.C:188: error: ‘AnnotationFailedException’ was not declared in this scope
+charniakThriftServer_kBest.C:188: error: expected `;' before ‘e’
+charniakThriftServer_kBest.C:198: error: ‘input_’ was not declared in this scope
+charniakThriftServer_kBest.C:209: error: ‘AnnotationFailedException’ was not declared in this scope
+charniakThriftServer_kBest.C:209: error: expected `;' before ‘e’
+charniakThriftServer_kBest.C:215: error: ‘AnnotationFailedException’ was not declared in this scope
+charniakThriftServer_kBest.C:215: error: expected `;' before ‘e’
+charniakThriftServer_kBest.C:235: error: ‘AnnotationFailedException’ was not declared in this scope
+charniakThriftServer_kBest.C:235: error: expected `;' before ‘e’
+charniakThriftServer_kBest.C:249: error: ‘class AnsTreeStr’ has no member named ‘probs’
+charniakThriftServer_kBest.C:250: error: ‘AnnotationFailedException’ was not declared in this scope
+charniakThriftServer_kBest.C:250: error: expected `;' before ‘e’
+charniakThriftServer_kBest.C:256: error: ‘class AnsTreeStr’ has no member named ‘trees’
+charniakThriftServer_kBest.C:260: error: ‘class AnsTreeStr’ has no member named ‘probs’
+charniakThriftServer_kBest.C:264: error: ‘parseTree_’ was not declared in this scope
+charniakThriftServer_kBest.C:273: error: ‘startCharOffset_’ was not declared in this scope
+charniakThriftServer_kBest.C:286: error: ‘Node’ was not declared in this scope
+charniakThriftServer_kBest.C:286: error: template argument 1 is invalid
+charniakThriftServer_kBest.C:286: error: template argument 2 is invalid
+charniakThriftServer_kBest.C:287: error: expected initializer before ‘it_node’
+charniakThriftServer_kBest.C:292: error: ‘it_node’ was not declared in this scope
+charniakThriftServer_kBest.C:292: error: ‘it_node_end’ was not declared in this scope
+charniakThriftServer_kBest.C: In member function ‘void ParserHandler::parseRecord(int)’:
+charniakThriftServer_kBest.C:319: error: ‘_parses’ was not declared in this scope
+charniakThriftServer_kBest.C:319: error: ‘record_’ was not declared in this scope
+charniakThriftServer_kBest.C:330: error: ‘AnnotationFailedException’ was not declared in this scope
+charniakThriftServer_kBest.C:330: error: expected `;' before ‘e’
+charniakThriftServer_kBest.C:331: error: ‘e’ was not declared in this scope
+charniakThriftServer_kBest.C:340: error: ‘Text’ was not declared in this scope
+charniakThriftServer_kBest.C:340: error: expected `;' before ‘sentenceText’
+charniakThriftServer_kBest.C:344: error: ‘sentenceText’ was not declared in this scope
+charniakThriftServer_kBest.C:346: error: ‘Tree’ was not declared in this scope
+charniakThriftServer_kBest.C:346: error: expected `;' before ‘parseTree’
+charniakThriftServer_kBest.C:348: error: ‘parseTree’ was not declared in this scope
+charniakThriftServer_kBest.C: In member function ‘void ParserHandler::addRootNodeAndTraverse(InputTree*, int&, int)’:
+charniakThriftServer_kBest.C:377: error: ‘Node’ was not declared in this scope
+charniakThriftServer_kBest.C:377: error: expected `;' before ‘myNode’
+charniakThriftServer_kBest.C:378: error: ‘myNode’ was not declared in this scope
+charniakThriftServer_kBest.C:422: error: request for member ‘size’ in ‘nodes_’, which is of non-class type ‘int’
+charniakThriftServer_kBest.C:432: error: request for member ‘push_back’ in ‘nodes_’, which is of non-class type ‘int’
+charniakThriftServer_kBest.C:436: error: request for member ‘size’ in ‘nodes_’, which is of non-class type ‘int’
+charniakThriftServer_kBest.C:441: error: request for member ‘size’ in ‘nodes_’, which is of non-class type ‘int’
+charniakThriftServer_kBest.C:442: error: invalid types ‘int[int]’ for array subscript
+charniakThriftServer_kBest.C: In member function ‘bool ParserHandler::checkEncodedStringIsCompatible(const std::string&, const std::string&, const std::string&) const’:
+charniakThriftServer_kBest.C:515: error: ‘AnnotationFailedException’ was not declared in this scope
+charniakThriftServer_kBest.C:515: error: expected `;' before ‘e’
+charniakThriftServer_kBest.C:516: error: ‘e’ was not declared in this scope
+charniakThriftServer_kBest.C:533: error: ‘AnnotationFailedException’ was not declared in this scope
+charniakThriftServer_kBest.C:533: error: expected `;' before ‘e’
+charniakThriftServer_kBest.C:534: error: ‘e’ was not declared in this scope
+charniakThriftServer_kBest.C: In function ‘int loadConfig(const char*, char**)’:
+charniakThriftServer_kBest.C:568: error: ‘AnnotationFailedException’ was not declared in this scope
+charniakThriftServer_kBest.C:568: error: expected `;' before ‘e’
+charniakThriftServer_kBest.C:569: error: ‘e’ was not declared in this scope
+charniakThriftServer_kBest.C: At global scope:
+charniakThriftServer_kBest.C:584: error: expected ‘,’ or ‘...’ before ‘&’ token
+charniakThriftServer_kBest.C:584: error: ISO C++ forbids declaration of ‘Node’ with no type
+charniakThriftServer_kBest.C: In function ‘void showNode(int)’:
+charniakThriftServer_kBest.C:586: error: ‘node_’ was not declared in this scope
+charniakThriftServer_kBest.C: At global scope:
+charniakThriftServer_kBest.C:609: error: expected ‘,’ or ‘...’ before ‘&’ token
+charniakThriftServer_kBest.C:609: error: ISO C++ forbids declaration of ‘Forest’ with no type
+charniakThriftServer_kBest.C: In function ‘void showForest(int)’:
+charniakThriftServer_kBest.C:612: error: ‘forest_’ was not declared in this scope
+charniakThriftServer_kBest.C: At global scope:
+charniakThriftServer_kBest.C:627: error: expected ‘,’ or ‘...’ before ‘&’ token
+charniakThriftServer_kBest.C:627: error: ISO C++ forbids declaration of ‘Tree’ with no type
+charniakThriftServer_kBest.C: In function ‘void showTree(int)’:
+charniakThriftServer_kBest.C:631: error: ‘tree_’ was not declared in this scope
+charniakThriftServer_kBest.C: In function ‘int main(int, char**)’:
+charniakThriftServer_kBest.C:668: error: ‘shared_ptr’ was not declared in this scope
+charniakThriftServer_kBest.C:668: error: expected primary-expression before ‘>’ token
+charniakThriftServer_kBest.C:668: error: ‘handler’ was not declared in this scope
+charniakThriftServer_kBest.C:669: error: ‘TProcessor’ was not declared in this scope
+charniakThriftServer_kBest.C:669: error: expected type-specifier before ‘ParserProcessor’
+charniakThriftServer_kBest.C:669: error: expected `)' before ‘ParserProcessor’
+charniakThriftServer_kBest.C:669: error: ‘processor’ was not declared in this scope
+charniakThriftServer_kBest.C:670: error: ‘TServerTransport’ was not declared in this scope
+charniakThriftServer_kBest.C:670: error: expected type-specifier before ‘TServerSocket’
+charniakThriftServer_kBest.C:670: error: expected `)' before ‘TServerSocket’
+charniakThriftServer_kBest.C:670: error: ‘serverTransport’ was not declared in this scope
+charniakThriftServer_kBest.C:672: error: ‘TProtocolFactory’ was not declared in this scope
+charniakThriftServer_kBest.C:672: error: expected type-specifier before ‘TBinaryProtocolFactory’
+charniakThriftServer_kBest.C:672: error: expected `)' before ‘TBinaryProtocolFactory’
+charniakThriftServer_kBest.C:672: error: ‘protocolFactory’ was not declared in this scope
+charniakThriftServer_kBest.C:675: error: ‘TTransportFactory’ was not declared in this scope
+charniakThriftServer_kBest.C:675: error: expected type-specifier before ‘TFramedTransportFactory’
+charniakThriftServer_kBest.C:675: error: expected `)' before ‘TFramedTransportFactory’
+charniakThriftServer_kBest.C:675: error: ‘transportFactory’ was not declared in this scope
+charniakThriftServer_kBest.C:679: error: ‘TSimpleServer’ was not declared in this scope
+charniakThriftServer_kBest.C:679: error: expected `;' before ‘server’
+charniakThriftServer_kBest.C:680: error: ‘server’ was not declared in this scope
+gmake: *** [charniakThriftServer_kBest] Error 1

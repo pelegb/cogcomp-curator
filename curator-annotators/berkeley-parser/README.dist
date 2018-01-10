@@ -1,0 +1,17 @@
+Berkeley Parser Server
+----------------------
+
+A wrapper for berkeley parser : 
+
+input string --> tokenizer --> tokenized string --> berkeley parser --> parsed trees --> curator trees
+
+Usage:
+
+>     $ bin/berkeley-parser-server.sh --help
+>     usage: java
+>            edu.illinois.cs.cogcomp.annotation.server.IllinoisChunkerServer [-c
+>            <CONFIG>] [-h] [-p <PORT>] [-t <THREADS>]
+>      -c,--config <CONFIG>     configuration file
+>      -h,--help                print this message
+>      -p,--port <PORT>         port to open server on
+>      -t,--threads <THREADS>   number of threads to run

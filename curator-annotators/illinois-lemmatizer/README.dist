@@ -1,0 +1,104 @@
+Illinois Lemmatizer Server
+==========================
+
+Description
+-----------
+
+This package wraps the Illinois Lemmatizer as a Thrift server using
+the Curator's MultiLabeler interface. It is designed to be integrated 
+into the Curator system.
+
+Semantics
+---------
+
+The output of the Lemmatizer server is a List of Labeling objects, 
+each corresponding to a specific lemmatizer. In order, they are:
+WordNet; WordNetPlus; and Porter. These come from the CCG Edison 
+Java library.
+
+Note that the annotators.xml file used by the Curator to register
+servers must list three fields for the lemmatizer, which will correpsond
+to the three lemmatizer views. 
+
+Each Span in a given Labeling has the following semantics: 
+
+* `span.label` contains a string representation of the lemma..
+
+Usage
+-----
+
+>     $ bin/illinois-lemmatizer-server.sh --help
+>
+
+
+Installation
+------------
+
+The Illinois Lemmatizer server depends on:
+
+Java >= 1.5
+Learning Based Java Library (`LBJ2Library.jar`)
+Illinois POS Tagger (`LBJPOS.jar`)
+cogcomp-common-resources-1.2.jar
+commons-cli-1.2.jar
+commons-codec-1.4.jar
+commons-lang-2.5.jar
+commons-logging-1.1.1.jar
+coreUtilities-0.1.6.jar (Illinois CCG)
+edison-0.3.jar (Illinois CCG)
+h2-1.3.157.jar
+hamcrest-core-1.3.jar
+httpclient-4.1.2.jar
+httpcore-4.1.3.jar
+illinois-lemmatizer-0.0.2.jar
+junit-4.11.jar
+jwnl-1.4_rc3.jar
+LBJLibrary-2.8.2.jar
+logback-classic-0.9.17.jar
+logback-core-0.9.17.jar
+slf4j-api-1.5.8.jar
+snowball-1.0.jar
+
+
+This component shares the following dependencies with all 
+Curator annotators:
+
+curator-interfaces-0.7.jar
+illinois-abstract-server-0.1.jar
+libthrift-0.8.0.jar
+
+
+In order to run the server you must install the dependencies.
+Download the Lemmatizer tool, and put its dist jar and its 
+dependencies in curator/lib. (If you are updating an existing
+Curator installation, you should put them also in curator/dist/lib/.)
+
+You can then compile the Lemmatizer Curator component from the 
+main directory of the illinois-lemmatizer using Apache ant (which
+uses the build.xml script in that directory): 
+
+> ant dist
+
+You can then copy the jar from dist/ to curator/dist/components/, 
+and the script illinois-lemmatizer-server.sh to curator/dist/bin/.
+You should copy the file configs/lemmatizerConfig.txt to 
+curator/dist/configs/; it expects to find a jwnl_properties.xml 
+file in curator/dist/configs also (this is used by several other
+CCG components, so may already be provided by another component).
+You will need to make sure you have WordNet installed; the default
+jwnl configuration file assumes there is a directory 
+curator/dist/data/WordNet/ with the various files required by JWNL
+therein. 
+
+
+Configuration
+-------------
+
+The Illinois Lemmatizer Server expects the Record object to contain an 
+annotation representing the sentence split, tokenization and POS tags.  
+The configuration files -- configs/lemmatizerConfig.txt and 
+configs/jwnl_properties.xml -- are used by the lemmatizer (see
+above for installation/values). 
+
+
+

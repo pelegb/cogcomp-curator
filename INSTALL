@@ -1,0 +1,928 @@
+                      README for Curator v1.0.5 
+                      =========================
+
+Author: Cognitive Computation Group, UIUC
+Date: 3/6/13
+
+We appreciate the help of various Curator users for helping us to improve
+this documentation. 
+
+
+Table of Contents
+=================
+1 README for Curator v1.0.5
+    1.1 What is the Curator?
+    1.2 Fine print
+2 Requirements
+3 Installation
+    3.1 Prerequisites
+    3.2 Download
+    3.3 Compilation and Installation
+        3.3.1 Uncompress the downloaded tarball
+        3.3.2 Set environment variables
+        3.3.3 Setting up MongoDB for Curator
+        3.3.4 Installing the Curator itself
+4 Usage
+    4.1 Starting the Curator and its components
+    4.2 Testing the curator
+    4.3 Using the Curator
+5 Understanding the Configuration Files
+    5.1 curator.properties
+    5.2 database.properties
+    5.3 annotators-example.xml
+    5.4 Specifying Pipelines
+6 Troubleshooting
+    6.1 Problems installing Thrift
+    6.2 bootstrap.sh
+    6.3 c++/Charniak
+    6.4 SRL fails with the message: Error adding attributes to predicate!
+7 Known Issues
+8 Further reading
+    8.1 Citation
+    8.2 Papers that have used the Curator
+9 Contact
+10 Version History
+
+
+1 README for Curator v1.0.3 
+============================
+
+1.1 What is the Curator? 
+-------------------------
+   The Curator is a system that acts as a central server in providing
+   annotations for text. It is responsible for requesting annotations
+   from multiple natural language processing servers, caching and
+   storing previous annotations and refreshing stale annotations. The
+   Curator provides a centralized resource which requests annotations
+   for natural language text. All the components will be run on one
+   or more of your machines, but your programs only needs to know
+   about the main Curator service. 
+
+   Visit [http://cogcomp.cs.illinois.edu/page/software_view/Curator] for
+   more information
+
+1.2 Fine print 
+---------------
+   The Curator is available under a Research and Academic use
+   license. For more details, visit the Curator website and click the
+   download link.
+
+
+2 Requirements 
+===============
+  
+  The Curator was developed on and for GNU/Linux, specifically CENTOS
+  (2.6.18-238.12.1.el5) and Scientific Linux
+  (2.6.32-279.5.2.el6.x86_64). There are no guarantees for running it
+  under any other operating system. The instructions below assume a
+  Linux OS.
+
+  For the sake of reasonably concise and non-insanity-inducing
+  instructions, we assume that either you will run all the processes
+  on a machine with a large (say, 24G+) memory, or that you will
+  install curator on a partition that is shared between multiple
+  machines. If this is not available to you, the easiest but most
+  annoyingly redundant thing to do is to install the entire curator
+  on each machine that will host curator processes.  Beyond that,
+  feel free to improve our code and tell us how we should have done
+  it (ideally, together with working examples...)  and we'll push the
+  improvements to the curator.
+   
+
+3 Installation 
+===============
+
+3.1 Prerequisites 
+------------------
+   1. Apache Ant
+
+   2. gcc version 4.1.2
+
+   3. Java 1.5 or later
+
+   4. Boost version 1.33.1 or later: Boost is needed for the Charniak
+      parser (which in turn is used by the semantic role labeler). It
+      is also needed to enable the C++ features of Thrift. Your Linux
+      distribution may come with boost installed. If not, you can
+      download it from [http://www.boost.org] and follow the "Getting
+      Started" guide to install Boost.
+
+   5. Thrift version 0.8.0: Apache Thrift can be downloaded from
+      [http://archive.apache.org/dist/thrift/0.8.0/thrift-0.8.0.tar.gz].
+      Follow the instructions here
+      [http://thrift.apache.org/docs/BuildingFromSource/] to install Thrift.
+
+  !!  NOTE 0: ***YOU MUST USE THRIFT VERSION 0.8.0***: later versions will 
+  !!      create build problems. 
+
+      NOTE 1: you can ignore the first step (./bootstrap.sh) as you have
+      downloaded a release version from the URL above.
+
+      NOTE 2: assuming you do not wish to use thrift for developing
+      applications in languages other than those used for Curator, 
+      you can run Thrift's "configure" command with the "--without-XYZ' 
+      flags as shown below (the options avoid installing the bindings 
+      for other languages). The sample configure command also specifies
+      the 'prefix' flag to force thrift to install to a user-specified
+      location; this may be necessary if you don't have root access. 
+
+      > ./configure --without-csharp --without-erlang --without-ruby \
+         --without-haskell --without-go --prefix="/jsmith/lib/thrift"
+
+      Troubleshooting: 
+      - if you see errors when running 'make check' of the form 
+        'no rule to make target /usr/lib/libboost_unit_test_framework.a' 
+	you may have an unexpected (at least by thrift) path to the
+        relevant library.  First, check where (and whether) you have
+        the relevant boost library installed:
+
+      > locate libboost_unit_test
+
+      if you see no directories listed, you need to install boost-devel: 
+      as root, run:
+
+      > yum install boost-devel
+
+
+      -- and try 'make' and 'make check' again. (The Thrift web site
+      advises running a setup step for different OSs that includes
+      a 'yum install' step for CENTOS-like systems that obviates the
+      need for this command; see the workaround next.)
+
+      
+
+      If the directories are there but the build fails, you may need 
+      a workaround, which requires sudo/root access. 
+
+      First, look at the output from the 'make check' command, and
+      look for a line like this:
+
+libtool: link: g++ -Wall -g -O2 -o .libs/AllProtocolsTest AllProtocolTests.o  -L/usr/lib64/lib ./.libs/libtestgencpp.a /scratch/downloads/thrift-0.8.0/lib/cpp/.libs/libthrift.so -lssl -lcrypto -lrt -lpthread -Wl,-rpath -Wl,/usr/local/lib
+
+      The last entry is where make is looking for the 
+      libboost_unit_test_framework.a library. Suppose your copy of the 
+      library is in /usr/lib64/:
+      to resolve the problem you would run the commands:
+
+      > cd /usr/local/lib
+      > ln -s /usr/lib64/libboost_unit_test_framework.a .
+
+
+      If you can't locate the libboost_unit_test_framework.a library, 
+      you will need to install boost locally. The Boost website gives
+      detailed instructions, including paths to use when specifying
+      include and linker library paths.  Suppose you install Boost
+      to the directory /jsmith/lib/boost/.  When you install thrift, 
+      you need to specify the link path with the option
+      '--with-boost="/jsmith/lib/boost"' as in the example above.
+      
+      Of course, these different tools with their various install
+      options may yet conspire to trip you up. The bottom line is that
+      Thrift 0.8.0 (and possibly other versions of thrift) look for
+      the Boost static library in a specific place, so even after
+      installing boost and configuring with the flags set correctly,
+      you may end up with the library not being found. The good news
+      is that if boost built the library, you can tell configure
+      where that link directory is by modifying the value of an 
+      environment variable.  In Bash, you modify the ~/.bash_profile
+      file of the user who will run the code (probably you, but
+      could be another user with read access to the directories
+      where you installed everything): open .bash_profile in a 
+      text editor and add the line
+
+	$LD_LIB_PATH=$LD_LIB_PATH:/jsmith/lib/boost/stage/lib 
+ 
+      -- naturally, the '/jsmith/...' path must be the path to
+      the boost libraries on your machine. 
+
+      Alternatively, you can create a symbolic link to the actual 
+      directory in the place where thrift expects to find it. On 
+      the CCG test machine, the local boost install put the 
+      missing library in boost_1_55_0/stage/lib (rather than in
+      boost_1_55_0/lib). Thrift reports the locations it tried
+      at the point of failure -- in our case, it was expecting
+      boost_1_55_0/lib -- which makes this a little easier. 
+      To create the symbolic link (symlink), 
+
+      > cd boost_1_55_0
+      > ln -s stage/lib lib
+
+      For us, this fixed the problem. 
+
+      Next obstacle: thrift will try to install to standard locations
+      for each language, but will ignore the --prefix="/my/preferred/loc"
+      argument you give to configure. You will need to specify 
+      environment variables for these. 
+      For the languages we use by default, this means specifying
+      PY_PREFIX, JAVA_PREFIX, PHP_PREFIX, PHP_CONFIG_PREFIX, 
+      and PERL_PREFIX. 
+      
+      Suppose you want everything under your newly created local 
+      directory /jsmith/lib/; you could set these variables in 
+      your/your user's .bash_profile thus:
+
+      MAIN_PREFIX="/jsmith/lib"
+      export PY_PREFIX="$MAIN_PREFIX/python"
+      export JAVA_PREFIX="$MAIN_PREFIX/java"
+      export PHP_PREFIX="$MAIN_PREFIX/php"
+      export PHP_CONFIG_PREFIX="$MAIN_PREFIX/php.d"
+      export PERL_PREFIX="$MAIN_PREFIX/perl"
+
+      If you write new components in these languages, you will need
+      to either use these environment variables or directly point
+      the compiler/interpreter to the relevant location for the
+      thrift library. 
+   !! NOTE: these environment variables must be set before you
+      run 'configure' for thrift installation.
+    
+
+   6. Mongodb: Get the Mongodb software from
+      [http://www.mongodb.org/downloads]. Installation instructions can
+      be found at [http://www.mongodb.org/display/DOCS/Quickstart].
+
+   
+   You will need to make sure that the Java and Ant binary directories
+   are on your system's PATH. Java and Ant require environment variables
+   to be set when they are installed -- JAVA_HOME and ANT_HOME.  You 
+   should check that these are set to a non-empty value:
+   
+   >  echo $JAVA_HOME
+   /some/path/on/your/machine/sun-jdk-1.6.0-latest-el6-x86_64   
+   >  echo $ANT_HOME
+   /some/other/path/apache-ant-1.8.1
+
+   If no value is displayed, consult the documentation for installing
+   the offending software.  
+
+   Next, check whether the relevant bin/ files are on your PATH:
+  
+   >  echo $PATH
+
+   -- you should see a set of entries including the value of
+   JAVA_HOME/bin and ANT_HOME/bin (for the example above, this means the line 
+   ":some/path/on/your/machine/sun-jdk-1.6.0-latest-el6-x86_64/bin:...
+    ...:/some/other/path/apache-ant-1.81.1/bin"
+
+   If these values don't appear in the output, you need To add these 
+   values to your system's PATH. For convenience, you can modify your
+   .bashrc or .cshrc file in your home directory. For Bash, it is:
+
+   PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin
+   export PATH
+
+   for C-shell, it is:
+
+   setenv PATH $PATH:$JAVA_HOME/bin:$ANT_HOME/bin
+
+
+3.2 Download 
+-------------
+   The curator can be downloaded from the website of the Cognitive
+   Computation Group from
+   [http://cogcomp.cs.illinois.edu/page/download_view/Curator]. The
+   download is a 50 MB tarball.
+
+3.3 Compilation and Installation 
+---------------------------------
+   The following installation instructions were tested on the bash
+   shell. If you are using a different shell, you might have to make
+   minor modifications.
+
+3.3.1 Uncompress the downloaded tarball. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $ tar xfvz curator-1.0.6.tgz
+    $ cd curator/
+    
+
+3.3.2 Set environment variables 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   The file setEnvVars.sh in the main Curator directory lists all the
+   environment variables needed. Modify this file based on your
+   system's configuration (i.e. where you installed Thrift, Boost, and
+   Curator).
+
+   To use the Curator, the following environment variables need to be
+   set:
+
+   1) CURATOR_HOME: The main curator directory that was extracted
+      from the download.
+
+   2) BOOST_INC_DIR: The "include" directory of the Boost
+      installation. To check if you have the right directory, verify
+      that the directory contains a subdirectory called boost, which
+      in turn contains many .hpp files.
+
+   3) THRIFT_ROOT: The root directory of your thrift installation.
+
+   4) MONGO_BIN: The directory that contains the mongo and mongod
+      executables.
+
+   5) PATH: The path must be extended to include the directory 
+      containing the thrift executable (should be $THRIFT_ROOT/bin)
+
+
+      
+   You will do this by setting the values of the first four variables in the
+   file setEnvVars.sh, the rest should be correct (based on the
+   distribution of Thrift we used).  After modifying the variables in
+   the file setEnvVars.sh, export the variables to your shell using
+    
+   $ source setEnvVars.sh
+   
+   You can verify that the variables have been set:
+    
+   $ echo $THRIFT_COMPILER_ROOT
+    
+   and you should see a path with the prefix being the value to which
+   you set the variable THRIFT_ROOT, and the suffix being
+   "/compiler/cpp".
+
+3.3.3 Setting up MongoDB for Curator 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    If you wish to specify non-default locations for the db archive
+    and log directories, you can set these values in setEnvVars.sh as
+    well; if you change the defaults you will need to create the new
+    directories yourself.
+
+    There are two modes in which the Curator can interact with the
+    database. The curator database can be set up to be either local to
+    the Curator instance. Alternatively, it can be a remote instance.
+
+* OPTION 1: Local Mongodb instance 
+  
+  These instructions assume you will run the mongodb server on the same
+  machine as you run the main Curator server; Curator will, by default,
+  try to connect to a mongodb instance running on the same host 
+  machine with the username "curator" and password "curator". 
+  
+  Create the database directories.
+  
+  $ mkdir -p dist/{db-log,db-archive}
+   
+  Once you have set the environment variables, you can start the 
+  mongodb server by running 
+  
+  $ ./startMongo.sh
+   
+  You will need to create the curator database, user and password in 
+  your new db instance:
+   
+  $ $MONGO_BIN/mongo
+  MongoDB shell version: 2.0.6
+  connecting to: test
+   
+  > use curator
+   
+  switched to db curator
+   
+  > db.addUser("curator", "curator")
+   
+  { "n" : 0, "connectionId" : 4, "err" : null, "ok" : 1 }
+  {
+          "user" : "curator",
+          "readOnly" : false,
+          "pwd" : "dcc462829872d978d8d45692952f2bd0",
+          "_id" : ObjectId("50184a1be500ad3e8fd5329d")
+  }
+   
+  > exit
+  
+* OPTION 2: Remote Mongodb instance 
+  
+  It is possible to set up a Mongodb server process that listens on
+  a port, and which may be accessed remotely. On the host machine,
+  after you have installed Mongodb, create the directory that will
+  hold the database files and log, and copy the script
+  'startMongoRemote.sh' there.
+   
+  Log into the mongodb host machine and navigate to the directory
+  you have created.
+   
+  In a text editor, open the file 'startMongoRemote.sh' and change
+  the value of the variable 'MONGO_BIN' to the directory containing
+  the Mongodb executable. For example, if you installed Mongodb
+  into /scratch/, you would change the value of the MONGO_BIN
+  variable to something like the following (version number could be
+  different, for example):
+   
+  MONGO_BIN="/scratch/mongodb-linux-x86_64-2.0.6/bin"
+   
+  Choose the port number you will use for the mongodb instance,
+  e.g. 21987, and set the MONGO_PORT value in the
+  startMongoRemote.sh script:
+   
+  MONGO_PORT=21987
+   
+  You can also change the default locations for the Mongodb archive
+  and log directories; by default, they will be created under the
+  directory the script is started in.
+   
+  Exit the text editor and start the script:
+  
+  $ chmod 755 startMongoRemote.sh
+  $ ./startMongoRemote.sh
+  
+  
+  If this is the first time you have run the script, it should
+  create two new directories for the log and archive of the
+  database instance.  You can check that the process started
+  correctly by looking at the log file.
+   
+  Next, you need to log in locally to create the database and user that
+  the Curator will use to access the database. To connect, run 
+   
+  $ <path-to-mongo-bin>/mongo --port=<mongo-port-number>
+   
+  In the example here, this command would read:
+   
+  $ /scratch/mongodb-linux-x86_64-2.0.6/bin/mongo --port=21987
+   
+  At this point, you should get the mongo prompt:
+   
+  MongoDB shell version: 2.0.6
+  connecting to: 127.0.0.1:21987/test
+  >
+   
+  and now you can create the curator database, user and password as
+  described under Option 1 above.
+   
+  To configure Curator to use this remote mongodb instance: In a
+  text editor, open the file
+  curator/curator-server/configs/database.properties
+   
+  In the line 'database.url' change the value from 'localhost' to
+  '<host-machine-name>:<mongodb-port>'
+   
+  For example, if you will run your mongodb server process on a
+  machine named "macha.cs.uiuc.edu" on port "21987" you would
+  change the entry to read:
+   
+  database.url = macha.cs.uiuc.edu:21987
+   
+  IMPORTANT: If you have already installed Curator before deciding
+  to set up a remote Mongodb instance, you will instead need to
+  change the database.properties file in curator/dist/configs/.
+   
+  NOTE: to stop a mongo instance, you can log into the mongo shell
+  and execute the following commands:
+   
+  $ $MONGO_BIN/mongo
+  MongoDB shell version: 2.0.6
+  connecting to: test
+  > use admin
+  > db.shutdownServer()
+  
+
+3.3.4 Installing the Curator itself 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    0. It is assumed that you have already set Curator's 
+       environment variables:
+
+       > source setEnvVars.sh
+
+    1. The file 'bootstrap.sh' in the main curator directory will
+       download all the dependencies and data files that are
+       unavailable as maven repositories. 
+
+       First, edit the file to select only the annotators you want to
+       install. For example, if you want all annotators except the
+       Wikifier, you should have the following setting:
+       
+       BASIC=1
+       NEW_NER=1
+       STANFORD=1
+       SRL=1
+       WIKIFIER=0
+
+       The variable CLEANUP, if set to 1, will delete all temporary
+       directories that are created during the installation process.
+
+       Finally, if you don't have curl on your computer, change the
+       value of the variable NOCURL to "1". To check if you have curl,
+       use
+
+       $ which curl
+
+       If you don't get a path like /usr/bin/curl in response, just a
+       blank line or a warning that it doesn't exist, you have to
+       change the value of NOCURL.
+
+    2. Run
+
+       $ ./bootstrap.sh
+
+    3. You should now be able to build everything using ant.
+
+       $ ant dist
+
+       This will create a `dist` directory which contains all the
+       jars, scripts and documentation required to run the Curator and
+       the annotators.
+
+       NOTE: If you have selected only a subset of the annotators in
+       step 1, you have to comment them out in the file build.xml. For
+       example, if you do not wish to install the Wikifier, the lines
+       110-122 in build.xml look as follows:
+
+       <target name="-dist-annotators">
+        <annotator-dist annotator="illinois-abstract" />
+              <annotator-dist annotator="illinois-tokenizer" />
+              <annotator-dist annotator="illinois-pos" />
+              <annotator-dist annotator="illinois-chunker" />
+              <annotator-dist annotator="illinois-ner-extended" />
+              <annotator-dist annotator="illinois-coref" />
+              <annotator-dist annotator="stanford-parser" />
+              <annotator-dist annotator="illinois-verb-srl" />
+              <annotator-dist annotator="illinois-nom-srl" />
+              <!-- <annotator-dist annotator="illinois-wikifier" /> -->
+              <annotator-dist annotator="berkeley-parser" /> 
+       </target>
+
+    4. Non-Java annotators
+       
+      The non-java annotators (presently, just our server-ized version of
+      the Charniak parser) are not completely installed by the "ant dist"
+      process described above.
+       
+      You will need to compile the Charniak server and set the permissions of
+      the 'runIt.pl' script: 
+       
+      $ cd dist/CharniakServer/parser05May26fixed/PARSE
+      $ make charniakThriftServer && make charniakThriftServerKbest
+      $ cd ../../
+      $ chmod 755 runIt.pl
+
+    5. Installing WordNet files
+
+       If you did NOT install wikifier, the WordNet files will probably not be 
+       installed correctly, and they are needed by other tools. To install them,
+       navigate to the main curator directory and run: 
+        
+       $ tar xzf resources/WordNet.tgz dist/data
+        
+       and then 
+        
+       $ ls dist/data
+        
+       should show the directory WordNet/.
+
+    Aside: Each individual java component can be built using ant from
+    the component's directory. Some even have test targets.
+
+    
+
+4 Usage 
+========
+
+4.1 Starting the Curator and its components 
+--------------------------------------------
+    
+   You will need to determine which ports the component annotators and
+   the main curator service will listen on, and on which machines they
+   will reside.  You must change curator's configuration file to
+   reflect these decisions; in the example config,
+   dist/configs/annotators-example.xml, all machines are set to
+   "localhost".
+
+   The tokenizer server is run by the curator server process (the
+   tokenizer entry in the config file is specified as "local"), so you
+   don't need to explicitly start/stop/track it.
+    
+   You then need to start each component running on the machine and port
+   specified in the config file. Component startup scripts can be found
+   in curator/dist/bin/, and are set up to be run from the curator/dist/
+   directory.  The different components may require different arguments
+   to be passed to them; for now, the examples below should get you
+   started. The examples assume you use the port specified in 
+   dist/configs/annotators-example.xml. 
+   The example below creates a log directory and directs output from
+   the annotator processes to corresponding log files; it also runs them
+   as background processes so that all can be started from the same 
+   terminal.
+    
+   You can also use the startServers.sh script in the curator/ directory --
+   copy it to the curator/dist directory and run it from there. It just 
+   replicates the examples below. 
+    
+   $ mkdir logs
+    
+   $ bin/illinois-pos-server.sh -p 9091 >& logs/pos.log &
+    
+   $ bin/illinois-lemmatizer-server.sh -p 12345 >& logs/lemma.log &
+
+   $ bin/illinois-chunker-server.sh -p 9092 >& logs/chunk.log &
+    
+   $ bin/illinois-ner-server.sh -p 9093 -c configs/ner.config >& logs/ner.log &
+    
+   $ bin/illinois-coref-server.sh -p 9094 >& logs/coref.log &
+    
+   $ bin/stanford-parser-server.sh -p 9095 >& logs/stanford.log &
+    
+   $ bin/illinois-verb-srl-server.sh -p 14810 >& logs/verb-srl.log &
+    
+   $ bin/illinois-nom-srl-server.sh -p 14910 >& logs/nom-srl.log &
+    
+   $ bin/illinois-wikifier-server.sh -p 15231 >& logs/wikifier.log &
+    
+    
+   The non-java components need to be started too:
+    
+   $ cd CharniakServer
+   $ ./start_charniak.sh 9987 charniak9987 >& ../logs/charniak.log
+   $ cd ..
+    
+   You can start the curator server in the same way:
+    
+    
+   $ bin/curator.sh --annotators configs/annotators-example.xml --port 9010 --threads 10 >& logs/curator.log &
+    
+    
+   NOTE that it may take some time (a few minutes) for the annotators
+   to load their models into memory, so the curator may initially be
+   unable to connect to them (i.e., you may see some
+   "ConnectException" messages in the curator log file; after the
+   components have loaded their models, curator should nevertheless be
+   able to connect to them).
+    
+
+4.2 Testing the curator 
+------------------------
+   A basic test that the curator (and a subset of its servers) are
+   running properly can be run from the client-examples/ subdirectory
+   of dist.  Navigate to client-examples/java, and compile using the
+   command 'ant':
+   
+   $ cd dist/client-examples/java
+   $ ant
+   
+   Create a test sentence, e.g. using the command
+   
+   $ echo "Mr. Smith saw the dog with a telescope." > test.txt
+   
+   You can then run the 'runclient' script:
+   
+   $ ./runclient.sh localhost 9010 test.txt
+   
+   This should generate a long stream of text outputs corresponding to
+   different annotation resources.
+
+
+4.3 Using the Curator 
+----------------------
+   
+   In the curator annotators config file, the "field" entry/entries
+   for a given component identify the fields in a Curator Record
+   object that the relevant annotator will populate. The bottom line
+   is that you can call curator with a Record and the name of a field,
+   and it will populate that field from the relevant resource. The
+   client only needs to know about the curator and the names of the
+   fields it can provide.
+
+   One relatively painless way to use curator is via the Edison
+   library ([http://cogcomp.cs.illinois.edu/software/edison/])
+
+
+5 Understanding the Configuration Files
+=======================================
+
+   The Curator uses three main configuration files:
+
+   curator.properties
+   database.properties
+   annotators-example.xml
+
+
+5.1 curator.properties
+----------------------
+
+   There are three flags you may want to change in this file:
+
+   client.timeout
+
+   specifies the time in seconds before the Curator server throws
+   an exception due to a component server taking too long. 
+
+   curator.reporttime 
+   curator.versiontime
+
+   specify how often Curator checks its component servers are
+   active (and what version they return, as a way of checking
+   for component updates), and how often it logs the information
+   they report. The units are minutes.
+
+
+5.2 database.properties
+-----------------------
+
+   This file specifies properties of the Curator's database
+   behavior.
+
+   database.url 
+
+   specifies the hostname and port of Curator's MongoDB instance.
+  
+   database.reporttime
+
+   sets the interval in minutes between Curator's report of 
+   database activity for the previous interval. 
+
+   database.maintenancetime
+
+   specifies the time in minutes between Curator's cleanup of
+   the database by removing files that have not been accessed
+   recently.
+
+   database.updatecount
+
+   specifies the number of records that can be accessed before
+   Curator automatically generates a report, regardless of 
+   time elapsed since the last report (this prevents the
+   maintenance event from taking too long). 
+
+   database.expiretime
+
+   specifies the time in days before a record that has not 
+   been accessed will be deleted.  This is intended to keep
+   the database compact by keeping only "popular" data.
+
+
+5.3 annotators-example.xml
+
+   This file specifies the hosts, ports, and field names for
+   each Curator component. The ports must agree with the port
+   arguments you pass to the component startup scripts, and
+   the hosts must agree with the machine on which you run 
+   those scripts.  By default, everything is set up to run
+   on a single machine. 
+
+   The field names are used to label the views containing 
+   the annotations for the corresponding components in the
+   Curator output (i.e., the Record data structure it returns). 
+   As such, you need to use the same label when you access
+   the views in the Record. 
+
+   If you are using Edison 
+   (http://cogcomp.cs.illinois.edu/page/software_view/Edison),
+   you should know that it assumes that views are named 
+   as they are in the Curator's default annotators file
+   (so 4-label Named Entity Recognizer output is expected to
+   be in a field named "ner", for example). 
+
+
+5.4 Specifying Pipelines
+------------------------
+
+   Note that each entry in the annotators-example.xml file
+   may specify a set of prerequisites ("requirement" fields).
+   These use the same field names just described.  If you 
+   want to experiment with different pipelines, you can 
+   specify different annotators that use the same output
+   labels.
+
+   For example: suppose I have a Coreference system that
+   requires POS and Chunker inputs; also, that I have three 
+   different part-of-speech taggers and two different chunkers. 
+   Assuming that the chunkers use the same set of output labels, 
+   and that the POS taggers do as well, I can assign each of
+   these a unique field name (e.g. "pos1", "pos2", "pos3",
+   "chunk1", and "chunk2"). I can then specify combinations
+   of interest in the "requirements" field of my Coreference
+   component. If I want to try multiple combinations concurrently,
+   I will need to add a separate Coreference component for each
+   combination of requirements I want to use. 
+   (This is inefficient, but relatively simple to set up; we
+   will explore a more efficient mechanism in future work.)
+
+
+6 Troubleshooting 
+==================
+
+6.1 Problems installing Thrift 
+-------------------------------
+   1. If there's warning message indicating that the boost library is
+      not installed, check the path of the boost library.
+
+   2. If there is a problem with the ruby configuration, you can
+      choose to either update ruby or install Thrift without ruby
+      support. To do so, you need to configure the Makefile using
+   
+      $ ./configure --without-ruby <other-flags>
+    
+      Alternatively, you can update ruby and run:
+      
+      $ gem install bundler
+      $ bundle exec rake
+
+   3. If you get an error indicating that 'groupid attribute not
+      supported', you may need to use an older version of apache ant:
+      version 1.8.1 and 1.8.2 worked for us, but version 1.8.4 did
+      not.
+
+6.2 bootstrap.sh 
+-----------------
+   
+   Some users have reported that the tgz packages for NER and Wiki are
+   too large for curl to handle on their systems, leading to
+   incomplete copies.  In this case you will need to download them to
+   curator/tmp/ via your browser, and comment out the download lines
+   in the bootstrap.sh script.  You can then run the bootstrap.sh
+   script, which will move the packages to the appropriate locations.
+
+6.3 c++/Charniak 
+-----------------
+   
+   Some users have reported problems with the Charniak annotator. The
+   fixes required center around missing #include directives; this
+   varies by platform.  
+
+6.3.1: "uint32_t does not name a type"
+
+   If you see errors like "uint32_t does not name a type" you need to add
+   
+   #include <stdint.h> 
+   
+   immediately before the other #include directives at the top of Thrift.h 
+   (found in $THRIFT_ROOT/lib/cpp/src/)
+   
+   Note: for one user, this apparently was not sufficient. He resolved his
+   problems by adding the same include directive to other files under 
+   curator/curator-interfaces/gen-cpp/ :
+   - Parser.h
+   - BaseService.h
+   - base_types.h
+   - curator_types.h
+   - MultiParser.h
+
+
+
+6.4 SRL fails with the message: Error adding attributes to predicate! 
+----------------------------------------------------------------------
+
+   If the SRL fails with the message: Error adding attributes to
+   predicate!  Unable to install
+   net.didion.jwnl.dictionary.FileBackedDictionary
+
+   The path to WordNet needs to be set in
+   curator/dist/configs/jwnl_properties.xml.  If you followed the
+   instructions for installing WordNet, it should be in
+   curator/dist/data/WordNet/; check that the path entry in the
+   jwnl_properties.xml file is correct.
+    
+      <param name="dictionary_path" value="dist/data/WordNet"/>
+    
+   NOTE: The value shown assumes you start the SRL component from the
+   dist/ directory.
+
+
+
+7 Known Issues 
+===============
+  - Presently, if an annotator takes too long to process a piece of
+    data, the curator will return an exception indicating timeout.
+    However, the client may continue to process the data, resulting in
+    spurious timeout exceptions for subsequent calls until the
+    annotator is finished.  This and other problems will be fixed,
+    creator willing, in a future release.
+
+  - The Stanford Parser component uses an outdated version of the
+    Stanford Parser.
+
+
+
+8 Further reading 
+==================
+
+7.1 Citation 
+-------------
+   To cite the Curator, use the following publication: 
+
+   An NLP Curator (or: How I Learned to Stop Worrying and Love NLP
+   Pipelines). J. Clarke and V. Srikumar and M. Sammons and D. Roth,
+   LREC, 2012.
+
+7.2 Papers that have used the Curator 
+--------------------------------------
+  TBA
+
+
+9 Contact 
+==========
+  Please send a message to illinois-ml-nlp-users@cs.uiuc.edu for any
+  questions about installing or using the Curator.
+
+
+
+10 Version History 
+==================
+
+0.6.x	Versions using Thrift 0.4.0, with increments representing
+	additional components, bug fixes, and improvements to 
+	documentation
+
+1.0.0	Updated Curator to use Thrift 0.8.0
+
+1.0.1-1.0.3 bug fixes/documentation fixes
+
+1.0.4   Added Illinois Lemmatizer; improved documentation
+
+1.0.5-1.0.7 bug fixes/documentation fixes

@@ -1,0 +1,90 @@
+Illinois Named Entity Recognition Server
+========================================
+
+CAVEAT
+------
+
+The Wikifier is not fully integrated with the standard curator dist
+patterns, so this documentation is more of a specification than an
+accurate representation of current behavior.
+
+
+Description
+-----------
+
+This package wraps the Illinois Wikifier as a Thrift server using
+the Curator's Labeler interface. It is designed to be integrated into the
+Curator system.
+
+Semantics
+---------
+
+The output of the Wikifier server is a Labeling object.  Each Span in
+the Labeling has the following semantics:
+
+## FIXME: update to reflect Wikifier output
+
+* `span.label` contains a string representation of the named entity tag.
+
+Usage
+-----
+
+>     $ bin/illinois-wikifier-server.sh --help
+>     usage: java edu.illinois.cs.cogcomp.annotation.server.IllinoisWikifierServer
+>            [-c <CONFIG>] [-h] [-p <PORT>] [-t <THREADS>]
+>      -c,--config <CONFIG>     configuration file
+>      -h,--help                print this message
+>      -p,--port <PORT>         port to open server on
+>      -t,--threads <THREADS>   number of threads to run
+
+Installation
+------------
+
+The Illinois Wikifier server depends on:
+
+* Java >= 1.5
+* Learning Based Java Library 2.2.2 (`LBJ2Library-2.2.2.jar`)
+* Curator interfaces (`curator-interfaces.jar`)
+* commons-cli-1.2.jar
+* commons-lang-2.5.jar
+* commons-logging-1.1.1.jar
+* h2-1.1.118.jar
+* libthrift.jar
+* logback-classic-0.9.17.jar
+* logback-core-0.9.17.jar
+* slf4j-api-1.5.8.jar
+* secondstring-20060615.jar
+* hadoop-0.17.0-core.jar:
+* lucene-core-2.4.1.jar
+* re.jar
+* edison-0.2.2.jar
+* coreUtilities-0.1.jar
+* protobuf-java-2.3.0.jar
+* liblinear-1.5-with-deps.jar 
+
+In order to run the server you must install the dependencies.
+
+1. Download and extract the Illinois Wikifier server dependencies to a temporary location.
+
+## FIXME: create dependencies tarball
+
+ >     $ cd /tmp
+ >     $ curl -O http://l2r.cs.uiuc.edu/~cogcomp/Software/illinois-ner-server-dependencies.tar.gz
+ >     $ tar xvzf illinois-wikifier-server-dependencies.tar.gz
+
+2. Copy the extracted jars to the curator lib directory.
+
+ >     $ pwd
+ >     /home/james/curator
+ >     $ cp /tmp/illinois-ner-server-dependencies/LBJ2Library-2.2.2.jar lib
+... etc. etc.
+
+
+## FIXME: check whether this is needed
+
+3. Copy the `ner` directory to the curator's data directory or modify
+`configs/ner.confg` to point to the various paths and files.
+
+ >     $ pwd
+ >     /home/james/curator
+ >     $ cp -R /tmp/illinois-ner-server-dependencies/ner data

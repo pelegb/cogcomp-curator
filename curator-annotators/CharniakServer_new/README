@@ -1,0 +1,6 @@
+########
+Charniak handler for Charniak 8170b00
+########
+
+About config.txt:
+[NUM_THREAD] specify the number of threads to run the charniak parser. The default is 1 and the maximum allowed is 4. Each thread processes the number of [INCREMENT] sentences at one time. The default value is 2. There is supposed to be some parallelism among differnet threads.

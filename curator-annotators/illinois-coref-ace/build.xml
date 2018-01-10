@@ -1,0 +1,104 @@
+<project name="illinois-coref-ace-server" default="compile" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+  <property name="curator.dir" location="../.." />
+  <property name="curator.lib" location="${curator.dir}/lib" />
+  <property name="src" location="src" />
+  <property name="build" location="bin" />
+  <property name="dist" location="dist" />
+  <property name="class.main" value="edu.illinois.cs.cogcomp.annotation.server.IllinoisCoreferenceServer"/>
+  <property name="memory" value="2000m" />
+  
+  <target name="resolve" description="retrieve dependencies with ivy" depends="init-ivy">
+    <ivy:resolve file="ivy.xml" />
+    <ivy:retrieve pattern="${curator.lib}/[artifact]-[revision].[ext]" />
+    <ivy:cachepath pathid="dependencies.classpath" useOrigin="true"/>
+  </target>
+  
+  <path id="project.classpath">
+    <pathelement location="${curator.dir}/curator-annotators/illinois-abstract/dist/illinois-abstract-server.jar" />
+    <pathelement location="${curator.dir}/curator-interfaces/dist/curator-interfaces.jar"/>
+    <pathelement location="${curator.lib}/LBJCoref-1.5.5-SNAPSHOT.jar" />
+    <pathelement location="${curator.lib}/cogcomp-common-resources-1.2.jar" />
+    <pathelement location="${curator.lib}/commons-codec-1.8.jar" />
+    <pathelement location="${curator.lib}/commons-lang-2.5.jar" />
+    <pathelement location="${curator.lib}/commons-logging-1.1.1.jar" />
+    <pathelement location="${curator.lib}/coreUtilities-0.1.7.jar" />
+    <pathelement location="${curator.lib}/curator-interfaces-0.7.jar" />
+    <pathelement location="${curator.lib}/edison-0.4.jar" />
+    <pathelement location="${curator.lib}/gson-2.2.4.jar" />
+    <pathelement location="${curator.lib}/h2-1.3.157.jar" />
+    <pathelement location="${curator.lib}/httpclient-4.1.2.jar" />
+    <pathelement location="${curator.lib}/httpcore-4.1.3.jar" />
+    <pathelement location="${curator.lib}/illinois-coref-ace-model-1.5.jar" />
+    <pathelement location="${curator.lib}/illinois-coref-ace-resources-1.5.jar" />
+    <pathelement location="${curator.lib}/illinois-entity-similarity-1.0.0.jar" />
+    <pathelement location="${curator.lib}/illinois-pos-1.7.1.jar" />
+    <pathelement location="${curator.lib}/junit-4.1.jar" />
+    <pathelement location="${curator.lib}/jwnl-1.4_rc3.jar" />
+    <pathelement location="${curator.lib}/LBJ-2.8.2.jar" />
+    <pathelement location="${curator.lib}/LBJLibrary-2.8.2.jar" />
+    <pathelement location="${curator.lib}/libthrift-0.8.0.jar" />
+    <pathelement location="${curator.lib}/logback-classic-0.9.28.jar" />
+    <pathelement location="${curator.lib}/logback-core-0.9.28.jar" />
+    <pathelement location="${curator.lib}/SecondString-1.0.jar" />
+    <pathelement location="${curator.lib}/slf4j-api-1.6.1.jar" />
+    <pathelement location="${curator.lib}/snowball-1.0.jar" />
+    <pathelement location="${curator.lib}/trove4j-3.0.3.jar" />
+
+
+    <path refid="dependencies.classpath" />
+    <pathelement location="${build}" />
+  </path>
+  
+  
+  <target name="compile" description="compile the java files" depends="resolve">
+    <mkdir dir="${build}" />
+    <javac srcdir="${src}" destdir="${build}" debug="true" classpathref="project.classpath" />
+	</target>
+
+        
+	<target name="clean" description="removes all java compiled files">
+      <delete dir="${build}" />
+      <delete dir="${dist}" />
+	</target>
+    
+	<target name="build" depends="compile" description="alias for compile" />
+    
+    <target name="print" description="print command line to run  the server" depends="compile">
+      <property name="thecp" refid="project.classpath" />
+      <echo>java -Xmx${memory} -classpath ${thecp} ${class.main}</echo>
+    </target>
+    
+	<target name="dist" description="creates a jar for the server in dist/" depends="clean, compile">
+      <mkdir dir="${dist}" />
+      <jar destfile="${dist}/${ant.project.name}.jar" basedir="${build}" />
+	</target>
+    
+    
+	<property name="ivy.install.version" value="2.1.0" />
+	<condition property="ivy.home" value="${env.IVY_HOME}">
+      <isset property="env.IVY_HOME" />
+	</condition>
+    
+	<property name="ivy.home" value="${user.home}/.ant" />
+	<property name="ivy.jar.dir" value="${ivy.home}/lib" />
+	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
+    
+	<target name="download-ivy" unless="offline">
+      <mkdir dir="${ivy.jar.dir}" />
+      <!-- download Ivy from web site so that it can be used even without any special installation -->
+      <get src="http://repo2.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true" />
+	</target>
+    
+	<target name="init-ivy" depends="download-ivy">
+      <!-- try to load ivy here from ivy home, in case the user has not already dropped
+           it into ant's lib dir (note that the latter copy will always take precedence).
+           We will not fail as long as local lib dir exists (it may be empty) and
+           ivy is in at least one of ant's lib dir or the local lib dir. -->
+      <path id="ivy.lib.path">
+        <fileset dir="${ivy.jar.dir}" includes="*.jar" />
+      </path>
+      <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+	</target>
+    
+</project>
+

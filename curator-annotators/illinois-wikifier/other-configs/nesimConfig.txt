@@ -1,0 +1,7 @@
+NICKNAMES_LIST=/shared/bronte/mssammon/wikifier-svn/WikifierVer3data/NESimdata/nicknames.txt
+ACRONYMS_LIST=/shared/bronte/mssammon/wikifier-svn/WikifierVer3data/NESimdata/acronyms.txt
+SHORTCUTS_LIST=/shared/bronte/mssammon/wikifier-svn/WikifierVer3data/NESimdata/shortcuts.txt
+HONORIFIC_LIST=/shared/bronte/mssammon/wikifier-svn/WikifierVer3data/NESimdata/honorifics.txt
+COUNTRYLANG_LIST=/shared/bronte/mssammon/wikifier-svn/WikifierVer3data/NESimdata/countrylanguage.txt
+PEOPLE_LIST=/shared/bronte/mssammon/wikifier-svn/WikifierVer3data/NESimdata/people.txt
+NICKNAMES_THRES=0.4f

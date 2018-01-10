@@ -1,0 +1,12 @@
+2012/10/9    added catch clause in charniakThriftServer that deletes mapparse
+             and inputstream heap objects
+
+2012/10/12   removed AnsHeap -- seems to be unused
+
+2012/11/12   added try/catch to Bchart to try to force destructor call on 
+		exception
+             same thing in MeChart
+	     added try/catch, explicit delete of newly allocated AnswerTree 
+		in extraMain.C
+	     
+

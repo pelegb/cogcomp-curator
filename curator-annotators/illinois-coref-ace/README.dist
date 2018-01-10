@@ -1,0 +1,73 @@
+Illinois Coference Resolution Server
+====================================
+
+Description
+-----------
+
+This package wraps the new Illinois Coference Resolver for ACE-style
+coreference annotation as a Thrift server 
+using the Curator's ClusterGenerator interface. It is designed to be 
+integrated into the Curator system.
+
+Usage
+-----
+
+>     $ bin/illinois-coreference-server.sh --help
+>     usage: java edu.illinois.cs.cogcomp.annotation.server.IllinoisCorefServer
+>            [-c <CONFIG>] [-h] [-p <PORT>] [-t <THREADS>]
+>      -c,--config <CONFIG>     configuration file
+>      -h,--help                print this message
+>      -p,--port <PORT>         port to open server on
+>      -t,--threads <THREADS>   number of threads to run
+
+
+Installation
+------------
+
+The Illinois Coreference server depends on:
+
+* Java >= 1.7
+* Illinois Learning Based Java Library (`LBJ2Library.jar`)
+* Illinois Edison library (`Edison-0.5.jar`) 
+* Illinois Coreference Resolver (`LBJCoref-1.5[.x].jar`)
+* Curator interfaces (`curator-interfaces.jar`)
+* a Curator instance with Part-of-Speech, Chunker, NER
+* check the server.sh script for a complete list of third-party dependencies.
+
+
+
+
+
+In order to run the server you must install the dependencies.
+
+The installation is handled in the script 'bootstrap.sh' in the main 
+curator distribution directory.
+
+
+Configuration
+-------------
+
+The Illinois Coreference (ACE) Server expects the Record object to contain an
+annotation representing the sentence split, tokenization, POS tags, shallow
+parse chunks, and Named Entities.
+
+The configuration file at present contains a single value: a threshold
+for the coreference classifier. 
+
+There is an additional configuration file used by a sub-module of
+the Coreference code, "constraints.config".  
+
+These configuration files need to be on the classpath for the 
+Coreference curator component to run correctly. 
+
+
+WARNING
+-------
+
+This package is incompatible with LBJLibrary-2.8.3.jar.  Make sure that it
+is not on the classpath, as its Learner class tries to read classifier files
+with a class from a different package compared to LBJLibrary-2.8.2.jar. 
+For whatever reason, I found it very hard to control what was on the 
+classpath when starting the illinois-coref-ace-server.sh script as a 
+Curator component, and had to remove the alternative LBJLibrary jar from
+the lib/ directory.

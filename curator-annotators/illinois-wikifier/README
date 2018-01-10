@@ -1,0 +1,32 @@
+NO SOURCE REQUIRED
+handler, server class is in main wikifier jar
+
+As CURATOR COMPONENT, use DEMO.xml
+
+
+YOU MUST HAVE A GUROBI LICENSE AVAILABLE FOR THE MACHINE YOU RUN THIS 
+USING RELATIONAL INFERENCE
+
+
+
+DATA resources must be unpacked, and the paths in config/WikifierNER.config 
+and config/DEMO.xml must be changed to match
+
+
+NOTE:
+The Demo Wikifier may behave differently from the standalone instance. The Wikifier has its own internal NER, and I believe this is ignored when run as 
+a curator component, when it uses the dependency declared for it in the
+annotators.xml file of the Curator instance.
+
+
+
+todo: maven project for handler, declare wikifier dependency for automatic build
+run script can invoke maven just as SFV script does, to handle dependencies
+
+
+configs:
+NER.config
+jwnl_properties.xml
+STAND_ALONE_GUROBI.xml
+
+

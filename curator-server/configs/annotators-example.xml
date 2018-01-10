@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<curator-annotators>
+
+<annotator>
+  <type>multilabeler</type>
+  <field>sentences</field>
+  <field>tokens</field>
+  <local>edu.illinois.cs.cogcomp.annotation.handler.IllinoisTokenizerHandler</local>
+</annotator>
+
+<annotator>
+  <type>labeler</type>
+  <field>pos</field>
+  <host>localhost:9091</host>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+</annotator>
+
+<annotator>
+  <type>labeler</type>
+  <field>lemma</field>
+  <host>localhost:12345</host>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+  <requirement>pos</requirement>
+</annotator>
+
+
+<annotator>
+  <type>labeler</type>
+  <field>chunk</field>
+  <host>localhost:9092</host>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+  <requirement>pos</requirement>
+</annotator>
+
+<annotator>
+  <type>labeler</type>
+  <field>ner</field>
+  <host>localhost:9096</host>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+  <requirement>pos</requirement>
+</annotator>
+
+<annotator>
+  <type>labeler</type>
+  <field>ner-ext</field>
+  <host>localhost:9097</host>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+  <requirement>pos</requirement>
+</annotator>
+
+
+
+<annotator>
+  <type>clustergenerator</type>
+  <field>coref</field>
+  <host>localhost:9094</host>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+  <requirement>pos</requirement>
+  <requirement>ner</requirement>
+</annotator>
+
+<annotator>
+  <type>multiparser</type>
+  <field>stanfordParse</field>
+  <field>stanfordDep</field>
+  <host>localhost:9095</host>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+</annotator>
+
+<annotator>
+  <type>parser</type>
+  <field>charniak</field>
+  <host>localhost:9987</host>
+  <requirement>sentences</requirement>
+  <requirement>tokens</requirement>
+</annotator>
+
+
+
+<annotator>
+<type>parser</type>
+<field>srl</field>
+<host>localhost:14810</host>
+<requirement>sentences</requirement>
+<requirement>tokens</requirement>
+<requirement>pos</requirement>
+<requirement>chunk</requirement>
+<requirement>ner</requirement>
+<requirement>charniak</requirement>
+</annotator>
+
+<annotator>
+<type>parser</type>
+<field>nom</field>
+<host>localhost:14910</host>
+<requirement>sentences</requirement>
+<requirement>tokens</requirement>
+<requirement>pos</requirement>
+<requirement>chunk</requirement>
+<requirement>ner</requirement>
+<requirement>charniak</requirement>
+</annotator>
+
+<annotator>
+<type>labeler</type>
+<field>wikifier</field>
+<host>localhost:15231</host>
+<requirement>sentences</requirement>
+<requirement>tokens</requirement>
+<requirement>pos</requirement>
+<requirement>chunk</requirement>
+<requirement>ner</requirement>
+</annotator>
+
+<annotator>
+<type>parser</type>
+<field>berkeley</field>
+<host>localhost:16000</host>
+<requirement>sentences</requirement>
+<requirement>tokens</requirement>
+<requirement>pos</requirement>
+</annotator>
+
+</curator-annotators>

@@ -1,0 +1,65 @@
+Illinois Coference Resolution Server
+====================================
+
+Description
+-----------
+
+This package wraps the new Illinois Coference Resolver as a Thrift server 
+using the Curator's ClusterGenerator interface. It is designed to be 
+integrated into the Curator system.
+
+Usage
+-----
+
+>     $ bin/illinois-coreference-server.sh --help
+>     usage: java edu.illinois.cs.cogcomp.annotation.server.IllinoisCorefServer
+>            [-c <CONFIG>] [-h] [-p <PORT>] [-t <THREADS>]
+>      -c,--config <CONFIG>     configuration file
+>      -h,--help                print this message
+>      -p,--port <PORT>         port to open server on
+>      -t,--threads <THREADS>   number of threads to run
+
+
+Installation
+------------
+
+The Illinois Coreference server depends on:
+
+* Java >= 1.5
+* Illinois Learning Based Java Library (`LBJ2Library.jar`)
+* Illinois Edison library (`Edison.jar`) 
+* Illinois Coreference Resolver (`IllinoisCoreference.jar`)
+* Curator interfaces (`curator-interfaces.jar`)
+* a Curator instance with Part-of-Speech, Chunker, NER,
+  and Stanford Syntactic Parser, together with a Coreference-compatible
+  Mention Detector.
+* check the server.sh script for a complete list of third-party dependencies.
+
+
+
+
+
+In order to run the server you must install the dependencies.
+
+The installation is handled in the script 'bootstrap.sh' in the main 
+curator distribution directory.
+
+
+Configuration
+-------------
+
+The Illinois Coreference Server expects the Record object to contain an
+annotation representing the sentence split, tokenization, POS tags, shallow
+parse chunks, Named Entities, and Stanford syntactic parse trees.  
+
+The file configuration file `configs/coref.properties` specifies which
+fields in the Record.labelViews contain this information (defaults to
+`sentences`, `tokens` and `pos` respectively). Optionally it can point
+to the named entity field (which it will use as mentions).
+
+There is an additional configuration file used by a sub-module of
+the Coreference code, "constraints.config".  
+
+These configuration files need to be on the classpath for the 
+Coreference curator component to run correctly.
+

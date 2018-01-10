@@ -1,0 +1,11 @@
+/usr/bin/g++ -I /shared/grandpa/servers/theArchive/interfaces/gen-cpp -I /shared/grandpa/opt/include/thrift -I /shared/grandpa/opt/include/boost-1_33_1   -g -c charniakThriftServer.C
+AnswerTree.h:70: error: ‘NTH’ was not declared in this scope
+AnswerTree.h:71: error: ‘NTH’ was not declared in this scope
+AnswerTree.h: In constructor ‘AnsTreeStr::AnsTreeStr(int)’:
+AnswerTree.h:64: error: ‘NTH’ was not declared in this scope
+AnswerTree.h:66: error: ‘probs’ was not declared in this scope
+charniakThriftServer.C: In member function ‘void ParserHandler::parseSentence(cogcomp::thrift::base::Tree&, const cogcomp::thrift::base::Text&, int)’:
+charniakThriftServer.C:249: error: ‘class AnsTreeStr’ has no member named ‘probs’
+charniakThriftServer.C:256: error: ‘class AnsTreeStr’ has no member named ‘trees’
+charniakThriftServer.C:260: error: ‘class AnsTreeStr’ has no member named ‘probs’
+gmake: *** [charniakThriftServer.o] Error 1

@@ -1,0 +1,5 @@
+parser/DATA/EN/ -l400 -K chkTest.txt 
+SENTENCE_VIEW sentences
+TOK_VIEW tokens
+NUM_THREAD 2
+INCREMENT 2

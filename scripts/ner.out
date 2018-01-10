@@ -1,0 +1,41 @@
+DIRNAME: /shared/grandma/curator/dist/bin
+SCRIPTS_HOME: /shared/grandma/curator/dist/bin
+/shared/grandma/curator/dist/bin/illinois-ner-extended-server.pl: main jar is LbjNerTagger-2.1.jar.
+ARGS are: illinois-ner-exte.grandma.cs.uiuc.edu.9145 -p 9145 -c configs/ner.extended.config
+running command: /shared/grandma/curator/dist/bin/runIt.pl java -cp /shared/grandma/curator/dist:/shared/grandma/curator/dist/components/illinois-ner-server.jar:/shared/grandma/curator/dist/components/curator-interfaces.jar:/shared/grandma/curator/dist/lib/LbjNerTagger-2.1.jar:/shared/grandma/curator/dist/lib/LBJ2Library-2.8.2.jar:/shared/grandma/curator/dist/lib/commons-cli-1.2.jar:/commons-lang-2.5.jar:/shared/grandma/curator/dist/lib/commons-logging-1.1.1.jar:/shared/grandma/curator/dist/lib/libthrift-0.4.jar:/shared/grandma/curator/dist/lib/logback-classic-0.9.17.jar:/shared/grandma/curator/dist/lib/logback-core-0.9.17.jar:/shared/grandma/curator/dist/lib/slf4j-api-1.5.8.jar:/shared/grandma/curator/dist/lib/commons-configuration-1.6.jar:/shared/grandma/curator/dist/lib/coreUtilities-0.1.1.jar:/shared/grandma/curator/dist/lib/curator-client-0.6.jar:/shared/grandma/curator/dist/lib/curator-interfaces.jar:/shared/grandma/curator/dist/lib/LBJ2-2.8.2.jar:/shared/grandma/curator/dist/lib/log4j-1.2.13.jar:/shared/grandma/curator/dist/lib/lucene-core-2.4.1.jar:/shared/grandma/curator/dist/lib/stanford-ner.src.jar:/shared/grandma/curator/dist/lib/stanford-ner.src.jar -Dhome=/shared/grandma/curator/dist -Xmx6G edu.illinois.cs.cogcomp.annotation.server.IllinoisNERServer -p 9145 -c configs/ner.extended.config illinois-ner-exte.grandma.cs.uiuc.edu.9145## /shared/grandma/curator/dist/bin/runIt.pl: running command 'java' on args 'illinois-ner-exte.grandma.cs.uiuc.edu.9145 -cp /shared/grandma/curator/dist:/shared/grandma/curator/dist/components/illinois-ner-server.jar:/shared/grandma/curator/dist/components/curator-interfaces.jar:/shared/grandma/curator/dist/lib/LbjNerTagger-2.1.jar:/shared/grandma/curator/dist/lib/LBJ2Library-2.8.2.jar:/shared/grandma/curator/dist/lib/commons-cli-1.2.jar:/commons-lang-2.5.jar:/shared/grandma/curator/dist/lib/commons-logging-1.1.1.jar:/shared/grandma/curator/dist/lib/libthrift-0.4.jar:/shared/grandma/curator/dist/lib/logback-classic-0.9.17.jar:/shared/grandma/curator/dist/lib/logback-core-0.9.17.jar:/shared/grandma/curator/dist/lib/slf4j-api-1.5.8.jar:/shared/grandma/curator/dist/lib/commons-configuration-1.6.jar:/shared/grandma/curator/dist/lib/coreUtilities-0.1.1.jar:/shared/grandma/curator/dist/lib/curator-client-0.6.jar:/shared/grandma/curator/dist/lib/curator-interfaces.jar:/shared/grandma/curator/dist/lib/LBJ2-2.8.2.jar:/shared/grandma/curator/dist/lib/log4j-1.2.13.jar:/shared/grandma/curator/dist/lib/lucene-core-2.4.1.jar:/shared/grandma/curator/dist/lib/stanford-ner.src.jar:/shared/grandma/curator/dist/lib/stanford-ner.src.jar -Dhome=/shared/grandma/curator/dist -Xmx6G edu.illinois.cs.cogcomp.annotation.server.IllinoisNERServer -p 9145 -c configs/ner.extended.config'...
+12:06:26,013 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+12:06:26,013 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/shared/grandma/curator/dist/logback.xml]
+12:06:26,077 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+12:06:26,077 |-INFO in ch.qos.logback.classic.turbo.ReconfigureOnChangeFilter@29e97f9f - Will scan for changes in file [/shared/grandma/curator/dist/logback.xml] every 60 seconds. 
+12:06:26,077 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - Adding ReconfigureOnChangeFilter as a turbo filter
+12:06:26,077 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+12:06:26,079 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+12:06:26,101 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [layout] on top of the object stack.
+12:06:26,132 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Popping appender named [STDOUT] from the object stack
+12:06:26,132 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+12:06:26,134 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [FILE]
+12:06:26,139 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [rollingPolicy] on top of the object stack.
+12:06:26,145 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - No compression will be used
+12:06:26,146 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - Will use the pattern logs/dated/HOSTNAME_IS_UNDEFINED-servers.%d{yyyy-MM-dd}.log for the active file
+12:06:26,150 |-INFO in ch.qos.logback.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy@20b9b538 - The date pattern is 'yyyy-MM-dd' from file name pattern 'logs/dated/HOSTNAME_IS_UNDEFINED-servers.%d{yyyy-MM-dd}.log'.
+12:06:26,150 |-INFO in ch.qos.logback.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy@20b9b538 - Roll-over at midnight.
+12:06:26,150 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [layout] on top of the object stack.
+12:06:26,151 |-WARN in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Setting "File" property to null on account of prudent mode
+12:06:26,151 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: logs/dated/HOSTNAME_IS_UNDEFINED-servers.2011-10-23.log
+12:06:26,151 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [null]
+12:06:26,156 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Popping appender named [FILE] from the object stack
+12:06:26,156 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+12:06:26,156 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+12:06:26,158 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [FILE] to Logger[ROOT]
+
+Exception in thread "main" java.lang.NoClassDefFoundError: edu/illinois/cs/cogcomp/NerTagger/lbj/NETaggerLevel2
+	at edu.illinois.cs.cogcomp.annotation.server.IllinoisNERServer.main(IllinoisNERServer.java:96)
+Caused by: java.lang.ClassNotFoundException: edu.illinois.cs.cogcomp.NerTagger.lbj.NETaggerLevel2
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:307)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	... 1 more
